@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lovasi Kertgondozás - Kert AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="fejlec">
+
+<img src="kepek/logo.png" class="logo">
+
+<h1>Lovasi Kertgondozás</h1>
+
+<p>
+Kertfelmérés mesterséges intelligenciával
+</p>
+
+</header>
+
+
+
+
+<section class="hero">
+
+<img src="kepek/fejlec.jpg">
+
+</section>
+
+
+
+
+
+<div class="doboz">
+
+
+<h2>Kert képek feltöltése</h2>
+
+
+<input 
+type="file"
+id="kepek"
+multiple
+accept="image/*">
+
+
+
+
+
+<h2>Milyen munkára van szüksége?</h2>
+
+
+<div class="munkak">
+
+
+
+<div class="kartya">
+
+<img src="kepek/funyiras.jpg">
+
+<label>
+
+<input type="checkbox" value="Fűnyírás">
+
+Fűnyírás
+
+</label>
+
+</div>
+
+
+
+
+<div class="kartya">
+
+<img src="kepek/viragagyas.jpg">
+
+<label>
+
+<input type="checkbox" value="Virágágyások gondozása">
+
+Virágágyások gondozása
+
+</label>
+
+</div>
+
+
+
+
+
+<div class="kartya">
+
+<img src="kepek/gazolás.jpg">
+
+<label>
+
+<input type="checkbox" value="Gazolás">
+
+Gazolás
+
+</label>
+
+</div>
+
+
+
+
+
+<div class="kartya">
+
+<img src="kepek/bokor.jpg">
+
+<label>
+
+<input type="checkbox" value="Bokrok metszése">
+
+Bokrok metszése
+
+</label>
+
+</div>
+
+
+
+
+
+<div class="kartya">
+
+<img src="kepek/bozot.jpg">
+
+<label>
+
+<input type="checkbox" value="Bozót irtás">
+
+Bozót irtás
+
+</label>
+
+</div>
+
+
+
+
+
+<div class="kartya">
+
+<img src="kepek/fakivagas.jpg">
+
+<label>
+
+<input type="checkbox" value="Fakivágás">
+
+Fakivágás
+
+</label>
+
+</div>
+
+
+
+</div>
+
+<h2>Település *</h2>
+
+<input
+type="text"
+id="telepules"
+placeholder="Pl. Lovas"
+required>
+
+
+<h2>Név</h2>
+
+<input
+type="text"
+id="nev"
+placeholder="Név">
+
+
+
+<h2>Email cím</h2>
+
+
+<input 
+type="email"
+id="email"
+placeholder="Email cím">
+
+
+<h2>Megjegyzés</h2>
+
+
+<textarea
+
+id="megjegyzes"
+
+placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről">
+
+</textarea>
+
+
+
+
+
+<button onclick="kuldes()">
+
+Ajánlat kérése
+
+</button>
+
+
+
+
+
+<div id="eredmeny"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+async function kuldes(){
+
+
+
+let fajlok=document.getElementById("kepek").files;
+
+
+let adat=new FormData();
+
+
+
+
+for(let i=0;i<fajlok.length;i++){
+
+adat.append(
+"kepek",
+fajlok[i]
+);
+
+}
+
+
+
+
+
+let munkak=[];
+
+
+document
+.querySelectorAll('input[type="checkbox"]:checked')
+.forEach(
+elem=>{
+
+munkak.push(elem.value);
+
+}
+
+);
+
+
+
+adat.append(
+"munkak",
+munkak.join(", ")
+);
+
+
+
+
+adat.append(
+
+"megjegyzes",
+
+document.getElementById("megjegyzes").value
+
+);
+
+
+
+
+
+adat.append(
+
+"email",
+
+document.getElementById("email").value
+
+);
+adat.append(
+"telepules",
+document.getElementById("telepules").value
+);
+
+
+adat.append(
+"nev",
+document.getElementById("nev").value
+);
+
+
+
+
+let eredmeny=document.getElementById("eredmeny");
+
+
+eredmeny.innerHTML="Elemzés folyamatban...";
+
+
+
+
+
+try{
+
+
+let valasz=await fetch("/elemzes",{
+
+method:"POST",
+
+body:adat
+
+});
+
+
+
+let json=await valasz.json();
+
+
+
+
+eredmeny.innerHTML=
+
+json.eredmeny || json.hiba;
+
+
+
+}
+
+catch(e){
+
+
+eredmeny.innerHTML=
+
+"Hiba történt a kapcsolat során.";
+
+
+}
+
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

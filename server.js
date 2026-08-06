@@ -64,16 +64,14 @@ data:kep.toString("base64")
 }
 
 const transporter = nodemailer.createTransport({
-
-host:"smtp.gmail.com",
-port:465,
-secure:true,
-
-auth:{
-    user:"lovasi.kertgondozas@gmail.com",
-    pass:process.env.EMAIL_JELSZO
-}
-
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    family: 4,
+    auth: {
+        user: "lovasi.kertgondozas@gmail.com",
+        pass: process.env.EMAIL_JELSZO
+    }
 });
 const prompt = `
 

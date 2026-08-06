@@ -224,7 +224,7 @@ console.log(req.files);
 // IDE MÁSOLD AZ EMAIL KÜLDÉST
 console.log("EMAIL KÜLDÉS INDUL");
     
-
+/*
 await transporter.sendMail({
 
 from:"Lovasi Kertgondozás <lovasi.kertgondozas@gmail.com>",
@@ -277,6 +277,7 @@ contentType:file.mimetype
 
 
 });
+*/
 console.log("EMAIL ELKÜLDVE");
 // EZ MARAD AZ EREDETI RÉSZED
 

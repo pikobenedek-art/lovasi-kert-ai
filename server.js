@@ -215,7 +215,7 @@ console.log(req.files);
 // IDE MÁSOLD AZ EMAIL KÜLDÉST
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-await resend.emails.send({
+const eredmenyEmail = await resend.emails.send({
     from: "onboarding@resend.dev",
     to: "lovasi.kertgondozas@gmail.com",
     subject: "Új kertészeti ajánlatkérés",
@@ -240,6 +240,7 @@ ${eredmeny}
 `
 });
 
+console.log("RESEND VÁLASZ:", eredmenyEmail);
 console.log("EMAIL ELKÜLDVE");
 // EZ MARAD AZ EREDETI RÉSZED
 

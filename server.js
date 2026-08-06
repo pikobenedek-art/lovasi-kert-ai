@@ -217,7 +217,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const eredmenyEmail = await resend.emails.send({
     from: "onboarding@resend.dev",
-    to: "lovasi.kertgondozas@gmail.com",
+    to: "piko.benedek@gmail.com",
     subject: "Új kertészeti ajánlatkérés",
     text: `
 Új ajánlatkérés érkezett!

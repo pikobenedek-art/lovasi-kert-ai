@@ -26,7 +26,7 @@ const ai = new GoogleGenAI({
 
 
 app.post("/elemzes", upload.array("kepek", 10), async (req, res) => {
-console.log("Elemzés kérés érkezett");
+
 try {
 
 
@@ -297,7 +297,8 @@ eredmeny:eredmeny
 catch(error){
 
 
-console.log(error);
+console.error("TELJES HIBA:", error);
+
 
 
 res.status(500).json({

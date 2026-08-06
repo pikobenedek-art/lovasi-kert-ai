@@ -45,7 +45,7 @@ let kepek=[];
 
 for(const file of req.files){
 
-const kep = fs.readFileSync(file.path);
+const kep = file.buffer;
 
 
 kepek.push({
@@ -225,22 +225,13 @@ const eredmenyEmail = await resend.emails.send({
 Név:
 ${req.body.nev || ""}
 
-Település:
-${req.body.telepules || ""}
-
-Email:
-${req.body.email || ""}
-
-Kért munkák:
-${req.body.munkak || ""}
-
 AI ajánlat:
 
 ${eredmeny}
 `,
     attachments: req.files.map(file => ({
         filename: file.originalname,
-        path: file.path
+        content: file.buffer
     }))
 });
 console.log("RESEND VÁLASZ:");

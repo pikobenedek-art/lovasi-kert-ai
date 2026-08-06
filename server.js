@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import express from "express";
 import multer from "multer";
 import cors from "cors";
@@ -65,15 +65,20 @@ data:kep.toString("base64")
 
 const transporter = nodemailer.createTransport({
 
-host:"smtp.gmail.com",
-port:587,
-secure:false,
-requireTLS:true,
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    
+    family: 4,
+    
+    auth: {
+        user: "lovasi.kertgondozas@gmail.com",
+        pass: process.env.EMAIL_JELSZO
+    },
 
-auth:{
-    user:"lovasi.kertgondozas@gmail.com",
-    pass:process.env.EMAIL_JELSZO
-}
+    tls: {
+        rejectUnauthorized: false
+    }
 
 });
 const prompt = `
@@ -225,61 +230,34 @@ let eredmeny=response.text.replaceAll("*","");
 console.log(req.files);
 
 // IDE MÁSOLD AZ EMAIL KÜLDÉST
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-
-await transporter.sendMail({
-
-from:"Lovasi Kertgondozás <lovasi.kertgondozas@gmail.com>",
-
-to:"lovasi.kertgondozas@gmail.com",
-
-subject:"Új kertészeti ajánlatkérés",
-
-text:`
-
+await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: "lovasi.kertgondozas@gmail.com",
+    subject: "Új kertészeti ajánlatkérés",
+    text: `
 Új ajánlatkérés érkezett!
-
 
 Név:
 ${req.body.nev || ""}
 
-
 Település:
 ${req.body.telepules || ""}
-
 
 Email:
 ${req.body.email || ""}
 
-
 Kért munkák:
 ${req.body.munkak || ""}
-
-
-Megjegyzés:
-${req.body.megjegyzes || ""}
-
 
 AI ajánlat:
 
 ${eredmeny}
-
-`,
-
-
-attachments: req.files.map((file)=>({
-
-filename:file.originalname,
-
-content:fs.readFileSync(file.path),
-
-contentType:file.mimetype
-
-}))
-
-
+`
 });
 
+console.log("EMAIL ELKÜLDVE");
 // EZ MARAD AZ EREDETI RÉSZED
 
 res.json({
@@ -294,24 +272,15 @@ eredmeny:eredmeny
 
 catch(error){
 
-
-console.log(error);
-
+console.error("TELJES HIBA:", error);
 
 res.status(500).json({
-
-hiba:"Az elemzés jelenleg nem sikerült. Kérjük próbálja meg később."
-
+hiba:error.message
 });
-
 
 }
 
-
-});
-
-
-
+});   
 
 
 app.listen(3000,()=>{

@@ -64,14 +64,20 @@ data:kep.toString("base64")
 }
 
 const transporter = nodemailer.createTransport({
+
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
-    family: 4,
+
     auth: {
         user: "lovasi.kertgondozas@gmail.com",
         pass: process.env.EMAIL_JELSZO
+    },
+
+    tls: {
+        rejectUnauthorized: false
     }
+
 });
 const prompt = `
 
@@ -224,7 +230,7 @@ console.log(req.files);
 // IDE MÁSOLD AZ EMAIL KÜLDÉST
 console.log("EMAIL KÜLDÉS INDUL");
     
-/*
+
 await transporter.sendMail({
 
 from:"Lovasi Kertgondozás <lovasi.kertgondozas@gmail.com>",
@@ -277,7 +283,7 @@ contentType:file.mimetype
 
 
 });
-*/
+
 console.log("EMAIL ELKÜLDVE");
 // EZ MARAD AZ EREDETI RÉSZED
 

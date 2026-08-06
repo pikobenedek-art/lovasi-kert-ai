@@ -240,8 +240,8 @@ ${eredmeny}
 `
 });
 
-console.log("RESEND VÁLASZ:", eredmenyEmail);
-console.log("EMAIL ELKÜLDVE");
+console.log("RESEND VÁLASZ:");
+console.log(JSON.stringify(eredmenyEmail, null, 2));
 // EZ MARAD AZ EREDETI RÉSZED
 
 res.json({

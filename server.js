@@ -63,20 +63,19 @@ data:kep.toString("base64")
 
 }
 
-
 const transporter = nodemailer.createTransport({
 
 host:"smtp.gmail.com",
-port:465,
-secure:true,
+port:587,
+secure:false,
+requireTLS:true,
 
 auth:{
-    user:"lovasi.kerdgondozas@gmail.com",
+    user:"lovasi.kertgondozas@gmail.com",
     pass:process.env.EMAIL_JELSZO
 }
 
 });
-
 const prompt = `
 
 Készíts rövid, ügyfélnek küldhető kertészeti ajánlatot.
@@ -230,9 +229,9 @@ console.log(req.files);
 
 await transporter.sendMail({
 
-from:"Lovasi Kertgondozás <lovasi.kerdgondozas@gmail.com>",
+from:"Lovasi Kertgondozás <lovasi.kertgondozas@gmail.com>",
 
-to:"lovasi.kerdgondozas@gmail.com",
+to:"lovasi.kertgondozas@gmail.com",
 
 subject:"Új kertészeti ajánlatkérés",
 

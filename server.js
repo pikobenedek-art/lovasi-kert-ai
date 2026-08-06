@@ -232,7 +232,7 @@ await transporter.sendMail({
 
 from:"Lovasi Kertgondozás <lovasi.kertgondozas@gmail.com>",
 
-to:"lovasi.kerdgondozas@gmail.com",
+to:"lovasi.kertgondozas@gmail.com",
 
 subject:"Új kertészeti ajánlatkérés",
 

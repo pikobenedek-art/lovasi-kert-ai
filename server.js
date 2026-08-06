@@ -296,23 +296,13 @@ eredmeny:eredmeny
 
 catch(error){
 
-
 console.error("TELJES HIBA:", error);
 
-
-
 res.status(500).json({
-
-hiba:"Az elemzés jelenleg nem sikerült. Kérjük próbálja meg később."
-
+hiba:error.message
 });
-
 
 }
-
-
-});
-
 
 
 

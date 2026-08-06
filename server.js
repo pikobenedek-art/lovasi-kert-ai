@@ -26,7 +26,7 @@ const ai = new GoogleGenAI({
 
 
 app.post("/elemzes", upload.array("kepek", 10), async (req, res) => {
-
+console.log("Elemzés kérés érkezett");
 try {
 
 

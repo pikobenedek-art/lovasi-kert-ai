@@ -15,7 +15,7 @@ app.use(express.static("public"));
 
 
 const upload = multer({
-    dest: "uploads/"
+    storage: multer.memoryStorage()
 });
 
 

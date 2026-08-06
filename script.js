@@ -37,14 +37,10 @@ let fajl =
 document.getElementById("kep").files[0];
 
 
-let adat =
-new FormData();
+let adat = new FormData();
 
-
-adat.append(
-"kep",
-fajl
-);
+adat.append("kepek", file);
+adat.append("email", document.getElementById("email").value);
 
 
 

@@ -66,10 +66,7 @@ data:kep.toString("base64")
 
 const transporter = nodemailer.createTransport({
 
-host:"smtp.gmail.com",
-port:587,
-secure:false,
-requireTLS:true,
+service:"gmail",
 
 auth:{
     user:"lovasi.kertgondozas@gmail.com",
@@ -77,7 +74,6 @@ auth:{
 }
 
 });
-
 const prompt = `
 
 Készíts rövid, ügyfélnek küldhető kertészeti ajánlatot.

@@ -237,9 +237,12 @@ ${req.body.munkak || ""}
 AI ajánlat:
 
 ${eredmeny}
-`
+`,
+    attachments: req.files.map(file => ({
+        filename: file.originalname,
+        path: file.path
+    }))
 });
-
 console.log("RESEND VÁLASZ:");
 console.log(JSON.stringify(eredmenyEmail, null, 2));
 // EZ MARAD AZ EREDETI RÉSZED

@@ -71,7 +71,7 @@ port:465,
 secure:true,
 
 auth:{
-    user:"lovasi.kerdgondozas@gmail.com",
+    user:"lovasi.kertgondozas@gmail.com",
     pass:process.env.EMAIL_JELSZO
 }
 
@@ -230,7 +230,7 @@ console.log(req.files);
 
 await transporter.sendMail({
 
-from:"Lovasi Kertgondozás <lovasi.kerdgondozas@gmail.com>",
+from:"Lovasi Kertgondozás <lovasi.kertgondozas@gmail.com>",
 
 to:"lovasi.kerdgondozas@gmail.com",
 

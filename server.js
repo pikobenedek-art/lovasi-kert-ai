@@ -225,6 +225,15 @@ const eredmenyEmail = await resend.emails.send({
 Név:
 ${req.body.nev || ""}
 
+Település:
+${req.body.telepules || ""}
+
+Email:
+${req.body.email || ""}
+
+Kért munkák:
+${req.body.munkak || ""}
+
 AI ajánlat:
 
 ${eredmeny}
@@ -234,6 +243,9 @@ ${eredmeny}
         content: file.buffer
     }))
 });
+
+console.log("RESEND VÁLASZ:");
+console.log(JSON.stringify(eredmenyEmail, null, 2));
 console.log("RESEND VÁLASZ:");
 console.log(JSON.stringify(eredmenyEmail, null, 2));
 // EZ MARAD AZ EREDETI RÉSZED

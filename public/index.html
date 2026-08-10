@@ -213,10 +213,23 @@ Ajánlat kérése
 
 async function kuldes(){
 
+const email = document.getElementById("email").value.trim();
 
+if (!email) {
+    alert("Az email cím megadása kötelező!");
+    document.getElementById("email").focus();
+    return;
+}
+
+const telepules = document.getElementById("telepules").value.trim();
+
+if (!telepules) {
+    alert("A település megadása kötelező!");
+    document.getElementById("telepules").focus();
+    return;
+}
 
 let fajlok=document.getElementById("kepek").files;
-
 
 let adat=new FormData();
 

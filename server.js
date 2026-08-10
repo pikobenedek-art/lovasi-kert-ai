@@ -174,7 +174,9 @@ Fontos:
 Ne írd ki külön az óradíjat az ügyfélnek.
 
 
-Az ajánlat végére mindig írd:
+Az ajánlat végére mindig írd az alábbi két mondatot:
+
+"Ez az ajánlat mesterséges intelligencia által készített előzetes becslés. A pontos munkamennyiséget és végleges árat a helyszíni felmérés alapján tudjuk meghatározni."
 
 "Ajánlatkérését elküldtük, hamarosan felvesszük Önnel a kapcsolatot."
 

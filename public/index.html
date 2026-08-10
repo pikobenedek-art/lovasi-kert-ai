@@ -186,10 +186,8 @@ placeholder="Írjon pár információt a kertről, helyszínről vagy elképzel�
 
 
 
-<button onclick="kuldes()">
-
-Ajánlat kérése
-
+<button type="button" id="ajanlatGomb">
+    Ajánlat kérése
 </button>
 
 
@@ -210,152 +208,103 @@ Ajánlat kérése
 
 <script>
 
+document.getElementById("ajanlatGomb").addEventListener("click", kuldes);
 
-async function kuldes(){
+async function kuldes() {
 
-const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const telepules = document.getElementById("telepules").value.trim();
 
-if (!email) {
-    alert("Az email cím megadása kötelező!");
-    document.getElementById("email").focus();
-    return;
-}
+    // EMAIL ELLENŐRZÉS
+    if (email === "") {
+        alert("Az email cím megadása kötelező!");
+        document.getElementById("email").focus();
+        return;
+    }
 
-const telepules = document.getElementById("telepules").value.trim();
+    // TELEPÜLÉS ELLENŐRZÉS
+    if (telepules === "") {
+        alert("A település megadása kötelező!");
+        document.getElementById("telepules").focus();
+        return;
+    }
 
-if (!telepules) {
-    alert("A település megadása kötelező!");
-    document.getElementById("telepules").focus();
-    return;
-}
+    // KÉPEK
+    let fajlok = document.getElementById("kepek").files;
 
-let fajlok=document.getElementById("kepek").files;
+    let adat = new FormData();
 
-let adat=new FormData();
+    for (let i = 0; i < fajlok.length; i++) {
+        adat.append("kepek", fajlok[i]);
+    }
 
+    // MUNKÁK
+    let munkak = [];
 
+    document
+        .querySelectorAll('input[type="checkbox"]:checked')
+        .forEach(elem => {
+            munkak.push(elem.value);
+        });
 
+    adat.append(
+        "munkak",
+        munkak.join(", ")
+    );
 
-for(let i=0;i<fajlok.length;i++){
+    // MEGJEGYZÉS
+    adat.append(
+        "megjegyzes",
+        document.getElementById("megjegyzes").value
+    );
 
-adat.append(
-"kepek",
-fajlok[i]
-);
+    // EMAIL
+    adat.append(
+        "email",
+        email
+    );
 
-}
+    // TELEPÜLÉS
+    adat.append(
+        "telepules",
+        telepules
+    );
 
+    // NÉV
+    adat.append(
+        "nev",
+        document.getElementById("nev").value
+    );
 
+    // EREDMÉNY
+    let eredmeny = document.getElementById("eredmeny");
 
+    eredmeny.innerHTML = "Elemzés folyamatban...";
 
+    try {
 
-let munkak=[];
+        let valasz = await fetch("/elemzes", {
+            method: "POST",
+            body: adat
+        });
 
+        let json = await valasz.json();
 
-document
-.querySelectorAll('input[type="checkbox"]:checked')
-.forEach(
-elem=>{
+        eredmeny.innerHTML =
+            json.eredmeny || json.hiba;
 
-munkak.push(elem.value);
+    }
 
-}
+    catch (e) {
 
-);
+        console.error(e);
 
+        eredmeny.innerHTML =
+            "Hiba történt a kapcsolat során.";
 
-
-adat.append(
-"munkak",
-munkak.join(", ")
-);
-
-
-
-
-adat.append(
-
-"megjegyzes",
-
-document.getElementById("megjegyzes").value
-
-);
-
-
-
-
-
-adat.append(
-
-"email",
-
-document.getElementById("email").value
-
-);
-adat.append(
-"telepules",
-document.getElementById("telepules").value
-);
-
-
-adat.append(
-"nev",
-document.getElementById("nev").value
-);
-
-
-
-
-let eredmeny=document.getElementById("eredmeny");
-
-
-eredmeny.innerHTML="Elemzés folyamatban...";
-
-
-
-
-
-try{
-
-
-let valasz=await fetch("/elemzes",{
-
-method:"POST",
-
-body:adat
-
-});
-
-
-
-let json=await valasz.json();
-
-
-
-
-eredmeny.innerHTML=
-
-json.eredmeny || json.hiba;
-
-
+    }
 
 }
-
-catch(e){
-
-
-eredmeny.innerHTML=
-
-"Hiba történt a kapcsolat során.";
-
-
-}
-
-
-
-}
-
-
 
 </script>
 

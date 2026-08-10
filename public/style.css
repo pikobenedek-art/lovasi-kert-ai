@@ -1,210 +1,411 @@
-body{
+* {
+    box-sizing: border-box;
+}
 
-font-family:Arial,sans-serif;
+html {
+    scroll-behavior: smooth;
+}
 
-margin:0;
-
-background:#eef4e8;
-
-color:#333;
-
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6f1;
+    color: #26352a;
 }
 
 
+/* =========================
+   FEJLÉC
+========================= */
 
-.fejlec{
-
-background:#246b24;
-
-color:white;
-
-text-align:center;
-
-padding:30px;
-
-}
-
-
-
-.logo{
-
-width:80px;
-
-}
-
-
-.hero {
-    width: 100%;
-    height: 420px;
+.fejlec {
     min-height: 420px;
 
-    background-image: url("/fejlec.jpg");
+    background:
+        linear-gradient(
+            rgba(20, 55, 28, 0.45),
+            rgba(20, 55, 28, 0.55)
+        ),
+        url("/fejlec.jpg");
+
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 
-    display: block;
-    position: relative;
-    visibility: visible;
-    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    color: white;
 }
 
+.logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.fejlec h1 {
+    font-size: 52px;
+    margin: 0 0 12px;
+    font-weight: 700;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.35);
+}
+
+.fejlec p {
+    font-size: 21px;
+    margin: 0;
+    opacity: 0.95;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    display: none;
+}
+
+
+/* =========================
+   FŐ DOBOZ
+========================= */
+
+.doboz {
+    width: min(1000px, calc(100% - 30px));
+    margin: -50px auto 60px;
+
+    position: relative;
+    z-index: 2;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   CÍMEK
+========================= */
+
+.doboz h2 {
+    margin: 32px 0 12px;
+
+    font-size: 21px;
+    color: #244d2b;
+}
+
+.doboz h2:first-child {
+    margin-top: 0;
+}
+
+
+/* =========================
+   INPUTOK
+========================= */
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+
+    border: 1px solid #d6ddd5;
+
+    border-radius: 12px;
+
+    padding: 15px 16px;
+
+    font-size: 16px;
+
+    background: #fafcf9;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4c8c55;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(76, 140, 85, 0.12);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+
+/* =========================
+   KÉPFELTÖLTÉS
+========================= */
+
+input[type="file"] {
+    width: 100%;
+
+    padding: 18px;
+
+    border: 2px dashed #a9bea9;
+
+    border-radius: 14px;
+
+    background: #f7faf6;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+input[type="file"]:hover {
+    border-color: #4c8c55;
+    background: #f0f7ef;
+}
+
+
+/* =========================
+   MUNKÁK
+========================= */
+
+.munkak {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 15px;
+}
+
+.kartya {
+    background: white;
+
+    border: 2px solid #e0e7df;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+.kartya:hover {
+    transform: translateY(-4px);
+
+    border-color: #77a97c;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.08);
+}
+
+.kartya img {
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.kartya label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    color: #304633;
+}
+
+.kartya input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+
+    accent-color: #3f8149;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   GOMB
+========================= */
+
+button {
+    width: 100%;
+
+    margin-top: 35px;
+
+    padding: 17px 25px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #34783e,
+            #55a45f
+        );
+
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(52, 120, 62, 0.25);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(52, 120, 62, 0.32);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   AI EREDMÉNY
+========================= */
+
+#eredmeny {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    background: #f2f7f1;
+
+    border-left: 5px solid #4c8c55;
+
+    white-space: pre-line;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   KÖTELEZŐ MEZŐ
+========================= */
+
+input:required:invalid:not(:focus) {
+    /* nem pirosítjuk automatikusan */
+}
+
+
+/* =========================
+   MOBIL
+========================= */
+
 @media (max-width: 700px) {
-    .hero {
-        height: 260px;
-        min-height: 260px;
+
+    .fejlec {
+        min-height: 350px;
+
+        padding: 30px 15px;
+    }
+
+    .fejlec h1 {
+        font-size: 36px;
+    }
+
+    .fejlec p {
+        font-size: 17px;
+    }
+
+    .logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .doboz {
+        width: calc(100% - 20px);
+
+        margin-top: -30px;
+
+        padding: 25px 18px;
+
+        border-radius: 18px;
+    }
+
+    .munkak {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+    }
+
+    .kartya img {
+        height: 120px;
+    }
+
+    .kartya label {
+        padding: 11px;
+
+        font-size: 14px;
     }
 }
 
 
-
-.doboz{
-
-max-width:900px;
-
-margin:40px auto;
-
-background:white;
-
-padding:30px;
-
-border-radius:25px;
-
-box-shadow:0 5px 25px #bbb;
-
-}
-
-
-
-
-
-h2{
-
-color:#246b24;
-
-}
-
-
-
-
-
-.munkak{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-
-gap:20px;
-
-}
-
-
-
-
-
-.kartya{
-
-background:#f5f5f5;
-
-border-radius:15px;
-
-overflow:hidden;
-
-padding-bottom:15px;
-
-}
-
-
-
-.kartya img{
-
-width:100%;
-
-height:130px;
-
-object-fit:cover;
-
-}
-
-
-
-.kartya label{
-
-display:block;
-
-padding:10px;
-
-font-size:17px;
-
-}
-
-
-
-
-textarea{
-
-width:100%;
-
-height:120px;
-
-border-radius:15px;
-
-padding:15px;
-
-font-size:16px;
-
-box-sizing:border-box;
-
-}
-
-
-
-
-button{
-
-width:100%;
-
-padding:18px;
-
-background:#ff9800;
-
-border:0;
-
-border-radius:30px;
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
-margin-top:20px;
-
-}
-
-
-
-button:hover{
-
-opacity:0.8;
-
-}
-
-
-
-
-#eredmeny{
-
-margin-top:30px;
-
-background:#e8f5e9;
-
-padding:25px;
-
-border-radius:20px;
-
-font-size:17px;
-
-line-height:1.6;
-
+/* =========================
+   KIS MOBIL
+========================= */
+
+@media (max-width: 450px) {
+
+    .munkak {
+        grid-template-columns: 1fr;
+    }
+
+    .kartya img {
+        height: 170px;
+    }
+
+    .fejlec h1 {
+        font-size: 31px;
+    }
+
+    .doboz h2 {
+        font-size: 19px;
+    }
 }

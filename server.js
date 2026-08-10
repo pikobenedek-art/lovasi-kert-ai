@@ -66,8 +66,21 @@ data:kep.toString("base64")
 
 const prompt = `
 
-Készíts rövid, ügyfélnek küldhető kertészeti ajánlatot.
+FONTOS ELLENŐRZÉS:
 
+Először vizsgáld meg a feltöltött képeket.
+
+Ellenőrizd, hogy a képeken valóban kert, udvar, telek, gyep, növényzet vagy kertészeti munkaterület látható-e.
+
+Ha a képek egyike sem kertészeti területet mutat, NE készíts kertészeti ajánlatot.
+
+Ebben az esetben kizárólag ezt írd vissza:
+
+"A feltöltött kép alapján nem állapítható meg kertészeti munkaterület. Kérjük, töltsön fel a kertről vagy a munkaterületről készült képet."
+
+Ha legalább egy kép megfelelő kertészeti területet mutat, folytasd az elemzést az alábbi szabályok szerint
+
+Készíts rövid, ügyfélnek küldhető kertészeti ajánlatot.
 Magyar nyelven írj.
 
 Fontos szabályok:

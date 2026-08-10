@@ -104,8 +104,6 @@ A képek alapján becsüld meg:
 - becsült árat
 
 
-A munkadíj magasabb minőségű kertfenntartási szolgáltatás alapján készüljön.
-
 
 Az ajánlatban szerepeljen:
 
@@ -115,16 +113,15 @@ ${req.body.munkak || "Nincs megadva"}
 
 Költség bontás:
 
-Munkadíj:
+Munkadíj munka folyamatonként:
 (kb. becsült összeg)
 
 
-Esetleges külön tételek:
 
 Becsült végösszeg:
 
 
-Ne ajánld fel automatikusan a zöldhulladék elszállítást.
+Ne ajánld fel  a zöldhulladék elszállítást.
 
 
 A munkák megnevezése pontosan:
@@ -145,7 +142,7 @@ Fakivágás
 
 Munkaterület:
 
-Csak Veszprém 20 km-es körzetében vállalunk munkát.
+föleg lovas 5 km-es körzetében vállalunk munkát, de ezt nem áruljuk el a megrendelönek
 
 Ha a település ezen kívül van, ezt írd:
 
@@ -244,8 +241,7 @@ ${eredmeny}
     }))
 });
 
-console.log("RESEND VÁLASZ:");
-console.log(JSON.stringify(eredmenyEmail, null, 2));
+
 console.log("RESEND VÁLASZ:");
 console.log(JSON.stringify(eredmenyEmail, null, 2));
 // EZ MARAD AZ EREDETI RÉSZED

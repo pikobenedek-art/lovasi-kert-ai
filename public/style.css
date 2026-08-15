@@ -25,7 +25,7 @@ body {
 
 
 /* =========================
-   FEJLÉC / MENÜ
+   FEJLÉC
 ========================= */
 
 .site-header {
@@ -37,20 +37,21 @@ body {
     justify-content: space-between;
 
     background: #fffdf7;
-    border-bottom: 1px solid #e8e4d8;
 
-    position: relative;
-    z-index: 10;
+    border-bottom: 1px solid #e8e4d8;
 }
 
 .brand {
     color: var(--green-dark);
+
     text-decoration: none;
 
     font-size: clamp(20px, 3vw, 28px);
+
     font-weight: 900;
 
     letter-spacing: -1px;
+
     text-transform: uppercase;
 }
 
@@ -61,10 +62,12 @@ body {
 .header-cta,
 .primary-button {
     display: inline-flex;
+
     align-items: center;
     gap: 12px;
 
     color: #fff;
+
     text-decoration: none;
 
     background: var(--green);
@@ -81,6 +84,7 @@ body {
 .header-cta:hover,
 .primary-button:hover {
     background: var(--green-dark);
+
     transform: translateY(-2px);
 }
 
@@ -93,9 +97,10 @@ body {
     min-height: 590px;
 
     display: grid;
+
     grid-template-columns:
         minmax(0, 1.05fr)
-        minmax(360px, 0.95fr);
+        minmax(360px, .95fr);
 
     overflow: hidden;
 
@@ -124,14 +129,14 @@ body {
     position: absolute;
     inset: 0;
 
-    opacity: 0.12;
+    opacity: .12;
 
     pointer-events: none;
 
     background-image:
         radial-gradient(
-            #28472b 0.7px,
-            transparent 0.7px
+            #28472b .7px,
+            transparent .7px
         );
 
     background-size: 7px 7px;
@@ -147,6 +152,7 @@ body {
     color: var(--leaf);
 
     font-size: 14px;
+
     font-weight: 900;
 
     letter-spacing: 1.2px;
@@ -167,7 +173,7 @@ h3 {
 
     letter-spacing: 1px;
 
-    line-height: 0.96;
+    line-height: .96;
 }
 
 h1 {
@@ -192,6 +198,7 @@ h1 span {
 
 .benefits {
     padding: 0;
+
     margin: 0 0 32px;
 
     list-style: none;
@@ -207,6 +214,7 @@ h1 span {
     content: "✓";
 
     display: inline-grid;
+
     place-items: center;
 
     width: 22px;
@@ -217,6 +225,7 @@ h1 span {
     border-radius: 50%;
 
     color: #fff;
+
     background: var(--leaf);
 
     font-size: 14px;
@@ -233,8 +242,8 @@ h1 span {
     background:
         linear-gradient(
             90deg,
-            rgba(17, 48, 21, 0.05),
-            rgba(17, 48, 21, 0.18)
+            rgba(17,48,21,.05),
+            rgba(17,48,21,.18)
         ),
         url("/kert.jpg")
         center / cover
@@ -247,15 +256,15 @@ h1 span {
 ========================= */
 
 .services {
-    padding: 80px clamp(20px, 5vw, 80px);
+    padding: 80px clamp(20px,5vw,80px);
 
     background: #e7eddf;
 }
 
 .section-heading {
-    max-width: 1000px;
+    max-width: 1300px;
 
-    margin: 0 auto 32px;
+    margin: 0 auto 30px;
 }
 
 .section-heading h2,
@@ -265,8 +274,41 @@ h1 span {
 
     color: var(--green-dark);
 
-    font-size: clamp(36px, 5vw, 62px);
+    font-size: clamp(36px,5vw,62px);
 }
+
+
+/* NAGY KERTKÉP */
+
+.kert-banner {
+    max-width: 1300px;
+
+    height: 360px;
+
+    margin: 0 auto 30px;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(22,67,28,.12);
+}
+
+.kert-banner img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* SZOLGÁLTATÁSOK EGY SORBAN */
 
 .service-grid {
     max-width: 1300px;
@@ -276,9 +318,9 @@ h1 span {
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(5, 1fr);
 
-    gap: 16px;
+    gap: 14px;
 }
 
 .service-card {
@@ -289,12 +331,25 @@ h1 span {
     border: 1px solid #d1ddca;
 
     box-shadow:
-        0 8px 20px rgba(22, 67, 28, 0.1);
+        0 8px 20px
+        rgba(22,67,28,.1);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 28px
+        rgba(22,67,28,.15);
 }
 
 .service-card img {
     width: 100%;
-    height: 220px;
+    height: 170px;
 
     object-fit: cover;
 
@@ -302,10 +357,10 @@ h1 span {
 }
 
 .service-card h3 {
-    margin: 18px 18px 5px;
+    margin: 14px 14px 5px;
 
     font:
-        800 24px/1
+        800 20px/1
         Arial, sans-serif;
 
     color: var(--green-dark);
@@ -316,7 +371,9 @@ h1 span {
 }
 
 .service-card p {
-    margin: 0 18px 20px;
+    margin: 0 14px 16px;
+
+    font-size: 14px;
 }
 
 
@@ -327,7 +384,7 @@ h1 span {
 .how-it-works {
     padding:
         65px
-        clamp(20px, 8vw, 150px);
+        clamp(20px,8vw,150px);
 
     background: var(--green-dark);
 
@@ -335,9 +392,7 @@ h1 span {
 
     display: grid;
 
-    grid-template-columns:
-        0.8fr
-        1.2fr;
+    grid-template-columns: .8fr 1.2fr;
 
     gap: 45px;
 
@@ -358,11 +413,12 @@ h1 span {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
     gap: 22px;
 
     padding: 0;
+
     margin: 0;
 }
 
@@ -391,19 +447,17 @@ h1 span {
 
 
 /* =========================
-   AI AJÁNLATKÉRÉS
+   AI AJÁNLAT
 ========================= */
 
 .quote-section {
     padding:
         90px
-        clamp(20px, 8vw, 150px);
+        clamp(20px,8vw,150px);
 
     display: grid;
 
-    grid-template-columns:
-        0.75fr
-        1.25fr;
+    grid-template-columns: .75fr 1.25fr;
 
     gap: 55px;
 
@@ -416,9 +470,19 @@ h1 span {
     font-size: 18px;
 }
 
+.ai-info {
+    padding: 15px 18px;
+
+    border-left: 4px solid var(--leaf);
+
+    background: #eef4e8;
+
+    font-size: 15px !important;
+}
+
 .quote-form {
     padding:
-        clamp(22px, 4vw, 42px);
+        clamp(22px,4vw,42px);
 
     background: #f4f7ef;
 
@@ -426,7 +490,7 @@ h1 span {
 
     box-shadow:
         0 15px 45px
-        rgba(17, 49, 24, 0.12);
+        rgba(17,49,24,.12);
 }
 
 .quote-form label,
@@ -479,7 +543,7 @@ textarea {
 
 
 /* =========================
-   MUNKÁK KIVÁLASZTÁSA
+   MUNKAVÁLASZTÓ KÉPEK
 ========================= */
 
 .quote-form fieldset {
@@ -494,23 +558,19 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(5,1fr);
 
-    gap: 10px;
+    gap: 12px;
 
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .work-options label {
     margin: 0;
 
-    padding: 10px 12px;
+    padding: 12px 8px;
 
-    background: #fff;
-
-    border: 1px solid var(--line);
-
-    font-weight: 600;
+    min-height: 145px;
 
     display: flex;
 
@@ -518,18 +578,32 @@ textarea {
 
     align-items: center;
 
-    justify-content: center;
+    justify-content: space-between;
 
-    gap: 7px;
+    gap: 8px;
+
+    background: #fff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 8px;
+
+    font-weight: 600;
 
     text-align: center;
 
-    min-height: 125px;
+    cursor: pointer;
+
+    transition:
+        .2s;
 }
 
 .work-options label:hover {
-    border-color: #a5bb9b;
-    background: #fbfdf9;
+    border-color: var(--leaf);
+
+    box-shadow:
+        0 5px 14px
+        rgba(22,67,28,.08);
 }
 
 .work-options input {
@@ -538,31 +612,27 @@ textarea {
     align-self: flex-start;
 }
 
-
-/* KISEBB KÉPEK AZ AI AJÁNLATNÁL */
-
 .work-options label img {
-    width: 70px;
-    height: 55px;
+    width: 82px;
+    height: 58px;
 
     object-fit: cover;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     display: block;
 }
 
 
 /* =========================
-   ŰRLAP MEZŐK
+   ŰRLAP
 ========================= */
 
 .form-grid {
     display: grid;
 
     grid-template-columns:
-        1fr
-        1fr;
+        1fr 1fr;
 
     gap: 15px;
 }
@@ -586,7 +656,7 @@ textarea {
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .quote-form button:hover {
@@ -625,6 +695,20 @@ footer {
    TABLET
 ========================= */
 
+@media (max-width: 1100px) {
+
+    .service-grid {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .work-options {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+}
+
+
 @media (max-width: 900px) {
 
     .intro,
@@ -637,18 +721,18 @@ footer {
         min-height: 330px;
     }
 
-    .service-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
     .how-it-works ol {
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(3,1fr);
     }
 
     .quote-section {
         gap: 30px;
+    }
+
+    .service-grid {
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
 
@@ -674,7 +758,6 @@ footer {
     }
 
     .service-grid,
-    .work-options,
     .form-grid,
     .how-it-works ol {
         grid-template-columns: 1fr;
@@ -697,20 +780,21 @@ footer {
         min-height: 270px;
     }
 
+    .kert-banner {
+        height: 240px;
+    }
+
+    .work-options {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
     .work-options label {
-        min-height: 110px;
-
-        flex-direction: row;
-
-        justify-content: flex-start;
-
-        text-align: left;
+        min-height: 125px;
     }
 
     .work-options label img {
-        width: 65px;
-        height: 50px;
-
-        margin-left: auto;
+        width: 70px;
+        height: 52px;
     }
 }

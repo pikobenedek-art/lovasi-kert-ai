@@ -2,6 +2,7 @@
 <html lang="hu">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,158 +17,204 @@
     ========================= */
 
     .site-header {
-      min-height: 520px;
       position: relative;
+      min-height: 620px;
       overflow: hidden;
 
       background:
         linear-gradient(
-          90deg,
-          rgba(20, 55, 28, 0.90),
-          rgba(20, 55, 28, 0.55)
+          180deg,
+          rgba(15, 45, 23, 0.92) 0%,
+          rgba(15, 45, 23, 0.72) 45%,
+          rgba(15, 45, 23, 0.35) 100%
         ),
-        url("kepek/fejléc.jpg") center / cover no-repeat;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      height: 520px;
-      margin: 0 auto;
-      padding: 0 30px;
+        url("kepek/fejléc.jpg") center center / cover no-repeat;
 
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    /* BAL OLDALI SZÖVEG */
-
-    .header-info {
-      flex: 1;
-      color: white;
-      z-index: 2;
-    }
-
-    .header-info h1 {
-      margin: 0;
-
-      font-size: clamp(48px, 6vw, 78px);
-      line-height: 0.95;
-      letter-spacing: -3px;
-    }
-
-    .header-info h1 span {
-      display: block;
-      color: #a8cf70;
-    }
-
-    .header-bottom {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-
-      margin-top: 25px;
-    }
-
-    .header-location {
-      margin: 0;
-
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1px;
-
-      color: white;
-      white-space: nowrap;
-    }
-
-    .header-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-
-      padding: 13px 20px;
-
-      background: #a8cf70;
-      color: #16391e;
-
-      text-decoration: none;
-      font-weight: 700;
-
-      border-radius: 6px;
-
-      white-space: nowrap;
-    }
-
-    .header-cta:hover {
-      background: #c1df91;
     }
 
 
     /* =========================
-       KERTKÉP JOBB OLDALON
+       FEJLÉC FELIRAT
+    ========================= */
+
+    .header-text {
+      width: 100%;
+      text-align: center;
+
+      padding-top: 55px;
+
+      position: relative;
+      z-index: 5;
+
+      color: white;
+    }
+
+
+    .header-text h1 {
+      margin: 0;
+
+      font-size: clamp(45px, 7vw, 78px);
+
+      line-height: 0.95;
+
+      letter-spacing: -3px;
+
+      font-weight: 700;
+    }
+
+
+    .header-text h1 span {
+      color: #a8cf70;
+    }
+
+
+    .header-location {
+      margin: 18px 0 22px;
+
+      font-size: 20px;
+
+      font-weight: 600;
+
+      letter-spacing: 1px;
+
+      color: white;
+    }
+
+
+    /* =========================
+       AI GOMB
+    ========================= */
+
+    .header-cta {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 14px 24px;
+
+      background: #a8cf70;
+
+      color: #173b20;
+
+      text-decoration: none;
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      border-radius: 6px;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+
+    .header-cta:hover {
+      background: #c2df92;
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       KERTKÉP
+       LEJJEBB A FEJLÉCBEN
     ========================= */
 
     .header-garden {
-      width: 48%;
-      height: 520px;
-
-      position: relative;
-      overflow: hidden;
-
-      flex-shrink: 0;
-    }
-
-    .header-garden::before {
-      content: "";
-
       position: absolute;
 
-      left: 0;
-      top: 0;
+      left: 50%;
+
       bottom: 0;
 
-      width: 180px;
+      transform: translateX(-50%);
 
-      z-index: 2;
+      width: min(900px, 90%);
 
-      background: linear-gradient(
-        90deg,
-        rgba(20, 55, 28, 1),
-        rgba(20, 55, 28, 0)
-      );
+      height: 300px;
+
+      overflow: hidden;
+
+      border-radius:
+        18px 18px 0 0;
+
+      box-shadow:
+        0 -10px 35px rgba(0, 0, 0, 0.25);
+
+      z-index: 3;
     }
+
 
     .header-garden img {
       width: 100%;
+
       height: 100%;
 
       display: block;
 
       object-fit: cover;
+
       object-position: center;
     }
 
 
     /* =========================
-       AI KÉPEK KISEBBEN
+       KIS SÖTÉT ÁTMENET A KÉPEN
+    ========================= */
+
+    .header-garden::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      top: 0;
+
+      height: 70px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15, 45, 23, 0.35),
+          transparent
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       AI AJÁNLAT RÉSZNÉL
+       KISEBB KÉPEK
     ========================= */
 
     .work-options label {
       display: flex;
+
       align-items: center;
+
       gap: 10px;
     }
 
+
     .work-options label img {
       width: 65px;
-      height: 45px;
 
-      margin-left: auto;
+      height: 45px;
 
       object-fit: cover;
 
       border-radius: 5px;
+
+      margin-left: auto;
 
       flex-shrink: 0;
     }
@@ -180,53 +227,34 @@
     @media (max-width: 800px) {
 
       .site-header {
-        min-height: auto;
+        min-height: 560px;
       }
 
-      .header-inner {
-        height: auto;
 
-        padding: 55px 20px 0;
-
-        flex-direction: column;
-
-        gap: 0;
+      .header-text {
+        padding:
+          40px 20px 0;
       }
 
-      .header-info {
-        width: 100%;
 
-        text-align: center;
+      .header-text h1 {
+        font-size: 48px;
 
-        padding-bottom: 35px;
-      }
-
-      .header-info h1 {
         letter-spacing: -2px;
       }
 
-      .header-bottom {
-        justify-content: center;
-        flex-wrap: wrap;
+
+      .header-location {
+        font-size: 17px;
+
+        margin-top: 15px;
       }
+
 
       .header-garden {
-        width: 100%;
-        height: 280px;
-      }
+        width: 94%;
 
-      .header-garden::before {
-        width: 100%;
-        height: 100px;
-
-        top: 0;
-        bottom: auto;
-
-        background: linear-gradient(
-          180deg,
-          rgba(20, 55, 28, 1),
-          rgba(20, 55, 28, 0)
-        );
+        height: 230px;
       }
 
     }
@@ -245,56 +273,56 @@
 
   <header class="site-header">
 
-    <div class="header-inner">
+
+    <!-- FEJLÉC FELIRAT KÜLÖN -->
+
+    <div class="header-text">
+
+      <h1>
+
+        Lovasi
+
+        <span>
+          Kertgondozás
+        </span>
+
+      </h1>
 
 
-      <!-- BAL OLDAL -->
+      <!-- ALCÍM A FELIRAT ALATT -->
 
-      <div class="header-info">
-
-        <h1>
-          Lovasi
-          <span>Kertgondozás</span>
-        </h1>
+      <p class="header-location">
+        Lovas és környéke
+      </p>
 
 
-        <!-- LOVAS ÉS KÖRNYÉKE + GOMB EGY VONALBAN -->
+      <!-- AI GOMB A FELIRAT ALATT -->
 
-        <div class="header-bottom">
+      <a
+        class="header-cta"
+        href="#ajanlatkeres">
 
-          <p class="header-location">
-            Lovas és környéke
-          </p>
+        AI ajánlatkérés
 
-          <a
-            class="header-cta"
-            href="#ajanlatkeres">
+        <span>
+          →
+        </span>
 
-            AI ajánlatkérés
-
-            <span>
-              →
-            </span>
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- JOBB OLDALI KERTKÉP -->
-
-      <div class="header-garden">
-
-        <img
-          src="kepek/kert.jpg"
-          alt="Gondozott kert">
-
-      </div>
-
+      </a>
 
     </div>
+
+
+    <!-- KERT.JGP LEJJEBB -->
+
+    <div class="header-garden">
+
+      <img
+        src="kepek/kert.jpg"
+        alt="Gondozott kert Lovas környékén">
+
+    </div>
+
 
   </header>
 
@@ -306,9 +334,12 @@
   <main id="kezdooldal">
 
 
+    <!-- BEMUTATKOZÁS -->
+
     <section
       class="intro"
       aria-labelledby="focim">
+
 
       <div class="intro-copy">
 
@@ -316,7 +347,8 @@
           Lovas és környéke
         </p>
 
-        <h2 id="focim">
+
+        <h1 id="focim">
 
           Kertészeti<br>
 
@@ -324,7 +356,8 @@
             szolgáltatások
           </span>
 
-        </h2>
+        </h1>
+
 
         <p class="intro-lead">
 
@@ -364,6 +397,7 @@
 
         </a>
 
+
       </div>
 
 
@@ -372,6 +406,7 @@
         role="img"
         aria-label="Gondozott kert Lovas környékén">
       </div>
+
 
     </section>
 
@@ -384,11 +419,13 @@
       class="services"
       aria-labelledby="szolgaltatasok">
 
+
       <div class="section-heading">
 
         <p class="eyebrow">
           Amiben segítünk
         </p>
+
 
         <h2 id="szolgaltatasok">
           Kertje jó kezekben
@@ -490,6 +527,7 @@
       class="how-it-works"
       aria-labelledby="folyamat">
 
+
       <div>
 
         <p class="eyebrow">
@@ -506,27 +544,45 @@
       <ol>
 
         <li>
-          <b>1</b>
+
+          <b>
+            1
+          </b>
+
           <span>
             Töltse fel kertjéről készült képeit.
           </span>
+
         </li>
 
+
         <li>
-          <b>2</b>
+
+          <b>
+            2
+          </b>
+
           <span>
             Jelölje be a szükséges munkákat.
           </span>
+
         </li>
 
+
         <li>
-          <b>3</b>
+
+          <b>
+            3
+          </b>
+
           <span>
             Kapjon előzetes, AI-alapú becslést.
           </span>
+
         </li>
 
       </ol>
+
 
     </section>
 
@@ -547,9 +603,11 @@
           AI kertfelmérés
         </p>
 
+
         <h2 id="ajanlat-cim">
           Kérjen előzetes ajánlatot
         </h2>
+
 
         <p>
 
@@ -560,6 +618,7 @@
           Önnel a kapcsolatot.
 
         </p>
+
 
       </div>
 
@@ -618,7 +677,7 @@
 
               <img
                 src="kepek/viragagyas.jpg"
-                alt="Virágágyás gondozása">
+                alt="Virágágyások gondozása">
 
             </label>
 
@@ -675,6 +734,7 @@
 
         <div class="form-grid">
 
+
           <label>
 
             Település
@@ -699,6 +759,7 @@
 
           </label>
 
+
         </div>
 
 
@@ -709,6 +770,7 @@
           <input
             type="text"
             id="email"
+            name="email"
             placeholder="Email cím vagy telefonszám"
             required>
 
@@ -743,10 +805,16 @@
 
       </div>
 
+
     </section>
+
 
   </main>
 
+
+  <!-- =========================
+       LÁBLÉC
+  ========================= -->
 
   <footer>
 
@@ -754,6 +822,10 @@
 
   </footer>
 
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
   <script>
 
@@ -792,6 +864,7 @@
           .focus();
 
         return;
+
       }
 
 
@@ -806,6 +879,7 @@
           .focus();
 
         return;
+
       }
 
 
@@ -904,6 +978,7 @@
           "Az ajánlat elkészült.";
 
       }
+
 
       catch (e) {
 

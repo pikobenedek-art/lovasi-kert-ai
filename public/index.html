@@ -16,49 +16,40 @@
     ========================= */
 
     .site-header {
+      min-height: 520px;
       position: relative;
-      min-height: 500px;
       overflow: hidden;
 
       background:
         linear-gradient(
           90deg,
-          rgba(15, 45, 23, 0.92) 0%,
-          rgba(15, 45, 23, 0.78) 45%,
-          rgba(15, 45, 23, 0.25) 100%
+          rgba(20, 55, 28, 0.90),
+          rgba(20, 55, 28, 0.55)
         ),
         url("kepek/fejléc.jpg") center / cover no-repeat;
     }
 
-    .header-content {
+    .header-inner {
       max-width: 1200px;
-      min-height: 500px;
+      height: 520px;
       margin: 0 auto;
       padding: 0 30px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 40px;
     }
 
-    .header-text {
-      width: 48%;
-      position: relative;
-      z-index: 3;
+    /* BAL OLDALI SZÖVEG */
+
+    .header-info {
+      flex: 1;
       color: white;
+      z-index: 2;
     }
 
-    .header-location {
-      margin: 0 0 15px;
-
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 3px;
-
-      color: #b8d98c;
-    }
-
-    .header-text h1 {
+    .header-info h1 {
       margin: 0;
 
       font-size: clamp(48px, 6vw, 78px);
@@ -66,58 +57,72 @@
       letter-spacing: -3px;
     }
 
-    .header-text h1 span {
+    .header-info h1 span {
       display: block;
       color: #a8cf70;
     }
 
-    .header-subtitle {
-      max-width: 450px;
+    .header-bottom {
+      display: flex;
+      align-items: center;
+      gap: 25px;
 
-      margin: 25px 0 30px;
+      margin-top: 25px;
+    }
 
-      font-size: 19px;
-      line-height: 1.5;
+    .header-location {
+      margin: 0;
+
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      color: white;
+      white-space: nowrap;
     }
 
     .header-cta {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
 
-      padding: 14px 22px;
+      padding: 13px 20px;
 
       background: #a8cf70;
-      color: #153c1e;
+      color: #16391e;
 
       text-decoration: none;
       font-weight: 700;
 
       border-radius: 6px;
 
-      transition: 0.2s;
+      white-space: nowrap;
     }
 
     .header-cta:hover {
-      background: #c2df93;
-      transform: translateY(-2px);
+      background: #c1df91;
     }
 
+
+    /* =========================
+       KERTKÉP JOBB OLDALON
+    ========================= */
+
     .header-garden {
-      width: 50%;
-      height: 500px;
+      width: 48%;
+      height: 520px;
 
       position: relative;
+      overflow: hidden;
 
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+      flex-shrink: 0;
     }
 
     .header-garden::before {
       content: "";
 
       position: absolute;
+
       left: 0;
       top: 0;
       bottom: 0;
@@ -128,8 +133,8 @@
 
       background: linear-gradient(
         90deg,
-        rgba(15, 45, 23, 1),
-        rgba(15, 45, 23, 0)
+        rgba(20, 55, 28, 1),
+        rgba(20, 55, 28, 0)
       );
     }
 
@@ -137,28 +142,6 @@
       width: 100%;
       height: 100%;
 
-      object-fit: cover;
-      object-position: center;
-
-      display: block;
-    }
-
-
-    /* =========================
-       SZOLGÁLTATÁSOK KÉPEI
-    ========================= */
-
-    .kert-banner {
-      width: 100%;
-      margin-bottom: 40px;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-
-    .kert-banner img {
-      width: 100%;
-      height: 350px;
-
       display: block;
 
       object-fit: cover;
@@ -167,26 +150,24 @@
 
 
     /* =========================
-       AI AJÁNLAT KÉPEK
+       AI KÉPEK KISEBBEN
     ========================= */
 
     .work-options label {
       display: flex;
       align-items: center;
       gap: 10px;
-
-      position: relative;
     }
 
     .work-options label img {
       width: 65px;
       height: 45px;
 
+      margin-left: auto;
+
       object-fit: cover;
 
       border-radius: 5px;
-
-      margin-left: auto;
 
       flex-shrink: 0;
     }
@@ -202,15 +183,17 @@
         min-height: auto;
       }
 
-      .header-content {
-        min-height: auto;
+      .header-inner {
+        height: auto;
 
         padding: 55px 20px 0;
 
         flex-direction: column;
+
+        gap: 0;
       }
 
-      .header-text {
+      .header-info {
         width: 100%;
 
         text-align: center;
@@ -218,9 +201,13 @@
         padding-bottom: 35px;
       }
 
-      .header-subtitle {
-        margin-left: auto;
-        margin-right: auto;
+      .header-info h1 {
+        letter-spacing: -2px;
+      }
+
+      .header-bottom {
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .header-garden {
@@ -234,22 +221,12 @@
 
         top: 0;
         bottom: auto;
-        left: 0;
 
         background: linear-gradient(
           180deg,
-          rgba(15, 45, 23, 1),
-          rgba(15, 45, 23, 0)
+          rgba(20, 55, 28, 1),
+          rgba(20, 55, 28, 0)
         );
-      }
-
-      .kert-banner img {
-        height: 230px;
-      }
-
-      .work-options label img {
-        width: 55px;
-        height: 40px;
       }
 
     }
@@ -268,40 +245,45 @@
 
   <header class="site-header">
 
-    <div class="header-content">
+    <div class="header-inner">
 
-      <div class="header-text">
 
-        <p class="header-location">
-          LOVAS ÉS KÖRNYÉKE
-        </p>
+      <!-- BAL OLDAL -->
+
+      <div class="header-info">
 
         <h1>
           Lovasi
           <span>Kertgondozás</span>
         </h1>
 
-        <p class="header-subtitle">
-          Gondozott kert, rendezett környezet.
-          Megbízható segítség a kert minden munkájához.
-        </p>
 
-        <a
-          class="header-cta"
-          href="#ajanlatkeres">
+        <!-- LOVAS ÉS KÖRNYÉKE + GOMB EGY VONALBAN -->
 
-          AI ajánlatkérés
+        <div class="header-bottom">
 
-          <span>
-            →
-          </span>
+          <p class="header-location">
+            Lovas és környéke
+          </p>
 
-        </a>
+          <a
+            class="header-cta"
+            href="#ajanlatkeres">
+
+            AI ajánlatkérés
+
+            <span>
+              →
+            </span>
+
+          </a>
+
+        </div>
 
       </div>
 
 
-      <!-- KERT.JPG A FEJLÉC JOBB OLDALÁN -->
+      <!-- JOBB OLDALI KERTKÉP -->
 
       <div class="header-garden">
 
@@ -310,6 +292,7 @@
           alt="Gondozott kert">
 
       </div>
+
 
     </div>
 
@@ -323,10 +306,6 @@
   <main id="kezdooldal">
 
 
-    <!-- =========================
-         BEMUTATKOZÁS
-    ========================= -->
-
     <section
       class="intro"
       aria-labelledby="focim">
@@ -338,15 +317,23 @@
         </p>
 
         <h2 id="focim">
+
           Kertészeti<br>
-          <span>szolgáltatások</span>
+
+          <span>
+            szolgáltatások
+          </span>
+
         </h2>
 
         <p class="intro-lead">
+
           Rendben tartott kert, megbízható segítséggel.
           Töltsön fel képeket a kertről, és kérjen gyors,
           előzetes AI-ajánlatot.
+
         </p>
+
 
         <ul class="benefits">
 
@@ -363,6 +350,7 @@
           </li>
 
         </ul>
+
 
         <a
           class="primary-button"
@@ -405,17 +393,6 @@
         <h2 id="szolgaltatasok">
           Kertje jó kezekben
         </h2>
-
-      </div>
-
-
-      <!-- KERT.JPG -->
-
-      <div class="kert-banner">
-
-        <img
-          src="kepek/kert.jpg"
-          alt="Gondozott kert">
 
       </div>
 
@@ -529,41 +506,24 @@
       <ol>
 
         <li>
-
-          <b>
-            1
-          </b>
-
+          <b>1</b>
           <span>
             Töltse fel kertjéről készült képeit.
           </span>
-
         </li>
 
-
         <li>
-
-          <b>
-            2
-          </b>
-
+          <b>2</b>
           <span>
             Jelölje be a szükséges munkákat.
           </span>
-
         </li>
 
-
         <li>
-
-          <b>
-            3
-          </b>
-
+          <b>3</b>
           <span>
             Kapjon előzetes, AI-alapú becslést.
           </span>
-
         </li>
 
       </ol>
@@ -572,7 +532,7 @@
 
 
     <!-- =========================
-         AI AJÁNLATKÉRÉS
+         AI AJÁNLAT
     ========================= -->
 
     <section
@@ -592,17 +552,13 @@
         </h2>
 
         <p>
+
           Küldjön néhány képet, és írja meg,
           milyen munkára van szüksége.
           Az AI előzetes becslést készít,
           amely alapján hamarosan felvesszük
           Önnel a kapcsolatot.
-        </p>
 
-        <p class="ai-info">
-          Az AI által készített ajánlat csak előzetes
-          becslés. A pontos munkamennyiséget és végleges
-          árat a helyszíni felmérés alapján határozzuk meg.
         </p>
 
       </div>
@@ -610,8 +566,6 @@
 
       <div class="quote-form">
 
-
-        <!-- KÉPFELTÖLTÉS -->
 
         <label
           class="field-label"
@@ -621,14 +575,13 @@
 
         </label>
 
+
         <input
           type="file"
           id="kepek"
           multiple
           accept="image/*">
 
-
-        <!-- MUNKÁK -->
 
         <fieldset>
 
@@ -646,9 +599,7 @@
                 type="checkbox"
                 value="Fűnyírás">
 
-              <span>
-                Fűnyírás
-              </span>
+              Fűnyírás
 
               <img
                 src="kepek/funyiras.jpg"
@@ -663,9 +614,7 @@
                 type="checkbox"
                 value="Virágágyások gondozása">
 
-              <span>
-                Virágágyások gondozása
-              </span>
+              Virágágyások gondozása
 
               <img
                 src="kepek/viragagyas.jpg"
@@ -680,9 +629,7 @@
                 type="checkbox"
                 value="Bokrok metszése">
 
-              <span>
-                Bokrok metszése
-              </span>
+              Bokrok metszése
 
               <img
                 src="kepek/bokor.jpg"
@@ -697,9 +644,7 @@
                 type="checkbox"
                 value="Bozót irtás">
 
-              <span>
-                Bozót irtás
-              </span>
+              Bozót irtás
 
               <img
                 src="kepek/bozot.jpg"
@@ -714,9 +659,7 @@
                 type="checkbox"
                 value="Fakivágás">
 
-              <span>
-                Fakivágás
-              </span>
+              Fakivágás
 
               <img
                 src="kepek/fakivagas.jpg"
@@ -729,8 +672,6 @@
 
         </fieldset>
 
-
-        <!-- ADATOK -->
 
         <div class="form-grid">
 
@@ -761,8 +702,6 @@
         </div>
 
 
-        <!-- ELÉRHETŐSÉG -->
-
         <label>
 
           Email cím / Telefonszám
@@ -770,15 +709,11 @@
           <input
             type="text"
             id="email"
-            name="email"
             placeholder="Email cím vagy telefonszám"
-            autocomplete="email"
             required>
 
         </label>
 
-
-        <!-- MEGJEGYZÉS -->
 
         <label>
 
@@ -790,8 +725,6 @@
 
         </label>
 
-
-        <!-- GOMB -->
 
         <button
           type="button"
@@ -815,20 +748,12 @@
   </main>
 
 
-  <!-- =========================
-       LÁBLÉC
-  ========================= -->
-
   <footer>
 
     Lovasi Kertgondozás · Lovas és környéke
 
   </footer>
 
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
 
   <script>
 
@@ -867,7 +792,6 @@
           .focus();
 
         return;
-
       }
 
 
@@ -882,7 +806,6 @@
           .focus();
 
         return;
-
       }
 
 
@@ -981,7 +904,6 @@
           "Az ajánlat elkészült.";
 
       }
-
 
       catch (e) {
 

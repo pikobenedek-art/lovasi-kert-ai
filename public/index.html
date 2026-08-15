@@ -2,344 +2,77 @@
 <html lang="hu">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Lovasi Kertgondozás</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <style>
-
-    /* =========================
-       FEJLÉC
-    ========================= */
-
-    .site-header {
-      position: relative;
-      min-height: 620px;
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(15, 45, 23, 0.92) 0%,
-          rgba(15, 45, 23, 0.72) 45%,
-          rgba(15, 45, 23, 0.35) 100%
-        ),
-        url("kepek/fejléc.jpg") center center / cover no-repeat;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-
-    /* =========================
-       FEJLÉC FELIRAT
-    ========================= */
-
-    .header-text {
-      width: 100%;
-      text-align: center;
-
-      padding-top: 55px;
-
-      position: relative;
-      z-index: 5;
-
-      color: white;
-    }
-
-
-    .header-text h1 {
-      margin: 0;
-
-      font-size: clamp(45px, 7vw, 78px);
-
-      line-height: 0.95;
-
-      letter-spacing: -3px;
-
-      font-weight: 700;
-    }
-
-
-    .header-text h1 span {
-      color: #a8cf70;
-    }
-
-
-    .header-location {
-      margin: 18px 0 22px;
-
-      font-size: 20px;
-
-      font-weight: 600;
-
-      letter-spacing: 1px;
-
-      color: white;
-    }
-
-
-    /* =========================
-       AI GOMB
-    ========================= */
-
-    .header-cta {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      padding: 14px 24px;
-
-      background: #a8cf70;
-
-      color: #173b20;
-
-      text-decoration: none;
-
-      font-size: 16px;
-
-      font-weight: 700;
-
-      border-radius: 6px;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-    }
-
-
-    .header-cta:hover {
-      background: #c2df92;
-
-      transform: translateY(-2px);
-    }
-
-
-    /* =========================
-       KERTKÉP
-       LEJJEBB A FEJLÉCBEN
-    ========================= */
-
-    .header-garden {
-      position: absolute;
-
-      left: 50%;
-
-      bottom: 0;
-
-      transform: translateX(-50%);
-
-      width: min(900px, 90%);
-
-      height: 300px;
-
-      overflow: hidden;
-
-      border-radius:
-        18px 18px 0 0;
-
-      box-shadow:
-        0 -10px 35px rgba(0, 0, 0, 0.25);
-
-      z-index: 3;
-    }
-
-
-    .header-garden img {
-      width: 100%;
-
-      height: 100%;
-
-      display: block;
-
-      object-fit: cover;
-
-      object-position: center;
-    }
-
-
-    /* =========================
-       KIS SÖTÉT ÁTMENET A KÉPEN
-    ========================= */
-
-    .header-garden::after {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      right: 0;
-      top: 0;
-
-      height: 70px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(15, 45, 23, 0.35),
-          transparent
-        );
-
-      pointer-events: none;
-    }
-
-
-    /* =========================
-       AI AJÁNLAT RÉSZNÉL
-       KISEBB KÉPEK
-    ========================= */
-
-    .work-options label {
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-    }
-
-
-    .work-options label img {
-      width: 65px;
-
-      height: 45px;
-
-      object-fit: cover;
-
-      border-radius: 5px;
-
-      margin-left: auto;
-
-      flex-shrink: 0;
-    }
-
-
-    /* =========================
-       MOBIL
-    ========================= */
-
-    @media (max-width: 800px) {
-
-      .site-header {
-        min-height: 560px;
-      }
-
-
-      .header-text {
-        padding:
-          40px 20px 0;
-      }
-
-
-      .header-text h1 {
-        font-size: 48px;
-
-        letter-spacing: -2px;
-      }
-
-
-      .header-location {
-        font-size: 17px;
-
-        margin-top: 15px;
-      }
-
-
-      .header-garden {
-        width: 94%;
-
-        height: 230px;
-      }
-
-    }
-
-  </style>
-
 </head>
-
 
 <body>
 
-
   <!-- =========================
        FEJLÉC
-  ========================= -->
+  ========================== -->
 
   <header class="site-header">
 
+    <div class="header-content">
 
-    <!-- FEJLÉC FELIRAT KÜLÖN -->
+      <div class="header-text">
 
-    <div class="header-text">
+        <p class="header-location">
+          LOVAS ÉS KÖRNYÉKE
+        </p>
 
-      <h1>
+        <h1>
+          Lovasi
+          <span>Kertgondozás</span>
+        </h1>
 
-        Lovasi
+        <p class="header-subtitle">
+          Gondozott kert, rendezett környezet.
+          Megbízható segítség a kert minden munkájához.
+        </p>
 
-        <span>
-          Kertgondozás
-        </span>
+        <a class="header-cta" href="#ajanlatkeres">
+          AI ajánlatkérés
+          <span>→</span>
+        </a>
 
-      </h1>
-
-
-      <!-- ALCÍM A FELIRAT ALATT -->
-
-      <p class="header-location">
-        Lovas és környéke
-      </p>
-
-
-      <!-- AI GOMB A FELIRAT ALATT -->
-
-      <a
-        class="header-cta"
-        href="#ajanlatkeres">
-
-        AI ajánlatkérés
-
-        <span>
-          →
-        </span>
-
-      </a>
-
-    </div>
+      </div>
 
 
-    <!-- KERT.JGP LEJJEBB -->
+      <!-- JOBB OLDALI KERTKÉP -->
 
-    <div class="header-garden">
+      <div class="header-garden">
 
-      <img
-        src="kepek/kert.jpg"
-        alt="Gondozott kert Lovas környékén">
+        <img
+          src="kepek/kert.jpg"
+          alt="Gondozott kert">
+
+      </div>
 
     </div>
-
 
   </header>
 
 
   <!-- =========================
        FŐ TARTALOM
-  ========================= -->
+  ========================== -->
 
   <main id="kezdooldal">
 
 
-    <!-- BEMUTATKOZÁS -->
+    <!-- =========================
+         BEMUTATKOZÁS
+    ========================== -->
 
     <section
       class="intro"
       aria-labelledby="focim">
-
 
       <div class="intro-copy">
 
@@ -347,26 +80,16 @@
           Lovas és környéke
         </p>
 
-
-        <h1 id="focim">
-
+        <h2 id="focim">
           Kertészeti<br>
-
-          <span>
-            szolgáltatások
-          </span>
-
-        </h1>
-
+          <span>szolgáltatások</span>
+        </h2>
 
         <p class="intro-lead">
-
           Rendben tartott kert, megbízható segítséggel.
           Töltsön fel képeket a kertről, és kérjen gyors,
           előzetes AI-ajánlatot.
-
         </p>
-
 
         <ul class="benefits">
 
@@ -384,7 +107,6 @@
 
         </ul>
 
-
         <a
           class="primary-button"
           href="#ajanlatkeres">
@@ -397,7 +119,6 @@
 
         </a>
 
-
       </div>
 
 
@@ -407,13 +128,12 @@
         aria-label="Gondozott kert Lovas környékén">
       </div>
 
-
     </section>
 
 
     <!-- =========================
          SZOLGÁLTATÁSOK
-    ========================= -->
+    ========================== -->
 
     <section
       class="services"
@@ -426,7 +146,6 @@
           Amiben segítünk
         </p>
 
-
         <h2 id="szolgaltatasok">
           Kertje jó kezekben
         </h2>
@@ -434,8 +153,23 @@
       </div>
 
 
+      <!-- NAGY KERTKÉP -->
+
+      <div class="kert-banner">
+
+        <img
+          src="kepek/kert.jpg"
+          alt="Gondozott kert">
+
+      </div>
+
+
+      <!-- SZOLGÁLTATÁSI KÁRTYÁK -->
+
       <div class="service-grid">
 
+
+        <!-- FŰNYÍRÁS -->
 
         <article class="service-card">
 
@@ -450,11 +184,13 @@
         </article>
 
 
+        <!-- VIRÁGÁGYÁS -->
+
         <article class="service-card">
 
           <img
             src="kepek/viragagyas.jpg"
-            alt="Virágágyás gondozása">
+            alt="Virágágyások gondozása">
 
           <h3>
             Ágyások gondozása
@@ -466,6 +202,8 @@
 
         </article>
 
+
+        <!-- METSZÉS -->
 
         <article class="service-card">
 
@@ -484,6 +222,8 @@
         </article>
 
 
+        <!-- FAKIVÁGÁS -->
+
         <article class="service-card">
 
           <img
@@ -501,6 +241,8 @@
         </article>
 
 
+        <!-- BOZÓTIRTÁS -->
+
         <article class="service-card">
 
           <img
@@ -508,8 +250,12 @@
             alt="Bozótirtás">
 
           <h3>
-            Bozót irtás
+            Bozótirtás
           </h3>
+
+          <p>
+            Elhanyagolt, benőtt területek rendezése.
+          </p>
 
         </article>
 
@@ -521,7 +267,7 @@
 
     <!-- =========================
          HOGYAN MŰKÖDIK
-    ========================= -->
+    ========================== -->
 
     <section
       class="how-it-works"
@@ -542,6 +288,7 @@
 
 
       <ol>
+
 
         <li>
 
@@ -581,15 +328,15 @@
 
         </li>
 
-      </ol>
 
+      </ol>
 
     </section>
 
 
     <!-- =========================
-         AI AJÁNLAT
-    ========================= -->
+         AI AJÁNLATKÉRÉS
+    ========================== -->
 
     <section
       class="quote-section"
@@ -597,34 +344,41 @@
       aria-labelledby="ajanlat-cim">
 
 
+      <!-- BAL OLDALI SZÖVEG -->
+
       <div class="quote-intro">
 
         <p class="eyebrow">
           AI kertfelmérés
         </p>
 
-
         <h2 id="ajanlat-cim">
           Kérjen előzetes ajánlatot
         </h2>
 
-
         <p>
-
           Küldjön néhány képet, és írja meg,
           milyen munkára van szüksége.
           Az AI előzetes becslést készít,
           amely alapján hamarosan felvesszük
           Önnel a kapcsolatot.
-
         </p>
 
+        <p class="ai-info">
+          Az AI által készített ajánlat csak előzetes
+          becslés. A pontos munkamennyiséget és végleges
+          árat a helyszíni felmérés alapján határozzuk meg.
+        </p>
 
       </div>
 
 
+      <!-- JOBB OLDALI ŰRLAP -->
+
       <div class="quote-form">
 
+
+        <!-- KÉPFELTÖLTÉS -->
 
         <label
           class="field-label"
@@ -642,6 +396,8 @@
           accept="image/*">
 
 
+        <!-- MUNKÁK -->
+
         <fieldset>
 
           <legend>
@@ -652,13 +408,17 @@
           <div class="work-options">
 
 
+            <!-- FŰNYÍRÁS -->
+
             <label>
 
               <input
                 type="checkbox"
                 value="Fűnyírás">
 
-              Fűnyírás
+              <span>
+                Fűnyírás
+              </span>
 
               <img
                 src="kepek/funyiras.jpg"
@@ -667,20 +427,26 @@
             </label>
 
 
+            <!-- VIRÁGÁGYÁS -->
+
             <label>
 
               <input
                 type="checkbox"
                 value="Virágágyások gondozása">
 
-              Virágágyások gondozása
+              <span>
+                Virágágyások gondozása
+              </span>
 
               <img
                 src="kepek/viragagyas.jpg"
-                alt="Virágágyások gondozása">
+                alt="Virágágyás gondozása">
 
             </label>
 
+
+            <!-- BOKOR -->
 
             <label>
 
@@ -688,7 +454,9 @@
                 type="checkbox"
                 value="Bokrok metszése">
 
-              Bokrok metszése
+              <span>
+                Bokrok metszése
+              </span>
 
               <img
                 src="kepek/bokor.jpg"
@@ -697,13 +465,17 @@
             </label>
 
 
+            <!-- BOZÓT -->
+
             <label>
 
               <input
                 type="checkbox"
-                value="Bozót irtás">
+                value="Bozótirtás">
 
-              Bozót irtás
+              <span>
+                Bozótirtás
+              </span>
 
               <img
                 src="kepek/bozot.jpg"
@@ -712,13 +484,17 @@
             </label>
 
 
+            <!-- FAKIVÁGÁS -->
+
             <label>
 
               <input
                 type="checkbox"
                 value="Fakivágás">
 
-              Fakivágás
+              <span>
+                Fakivágás
+              </span>
 
               <img
                 src="kepek/fakivagas.jpg"
@@ -732,12 +508,14 @@
         </fieldset>
 
 
+        <!-- ADATOK -->
+
         <div class="form-grid">
 
 
           <label>
 
-            Település
+            Település *
 
             <input
               type="text"
@@ -763,19 +541,24 @@
         </div>
 
 
+        <!-- EMAIL -->
+
         <label>
 
-          Email cím / Telefonszám
+          Email cím *
 
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
-            placeholder="Email cím vagy telefonszám"
+            placeholder="Email cím"
+            autocomplete="email"
             required>
 
         </label>
 
+
+        <!-- MEGJEGYZÉS -->
 
         <label>
 
@@ -783,10 +566,13 @@
 
           <textarea
             id="megjegyzes"
-            placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről"></textarea>
+            placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről">
+          </textarea>
 
         </label>
 
+
+        <!-- GOMB -->
 
         <button
           type="button"
@@ -797,6 +583,8 @@
         </button>
 
 
+        <!-- EREDMÉNY -->
+
         <div
           id="eredmeny"
           aria-live="polite">
@@ -804,7 +592,6 @@
 
 
       </div>
-
 
     </section>
 
@@ -814,7 +601,7 @@
 
   <!-- =========================
        LÁBLÉC
-  ========================= -->
+  ========================== -->
 
   <footer>
 
@@ -825,7 +612,7 @@
 
   <!-- =========================
        JAVASCRIPT
-  ========================= -->
+  ========================== -->
 
   <script>
 
@@ -839,12 +626,17 @@
 
     async function kuldes() {
 
+
+      /* EMAIL */
+
       const email =
         document
           .getElementById("email")
           .value
           .trim();
 
+
+      /* TELEPÜLÉS */
 
       const telepules =
         document
@@ -853,10 +645,12 @@
           .trim();
 
 
+      /* EMAIL ELLENŐRZÉS */
+
       if (!email) {
 
         alert(
-          "Az email cím vagy telefonszám megadása kötelező!"
+          "Az email cím megadása kötelező!"
         );
 
         document
@@ -867,6 +661,8 @@
 
       }
 
+
+      /* TELEPÜLÉS ELLENŐRZÉS */
 
       if (!telepules) {
 
@@ -883,15 +679,22 @@
       }
 
 
+      /* FORMDATA */
+
       const adat =
         new FormData();
 
 
-      for (
-        const fajl of
+      /* KÉPEK */
+
+      const fajlok =
         document
           .getElementById("kepek")
-          .files
+          .files;
+
+
+      for (
+        const fajl of fajlok
       ) {
 
         adat.append(
@@ -901,6 +704,8 @@
 
       }
 
+
+      /* KIVÁLASZTOTT MUNKÁK */
 
       const munkak =
         [
@@ -919,6 +724,8 @@
       );
 
 
+      /* MEGJEGYZÉS */
+
       adat.append(
         "megjegyzes",
         document
@@ -927,17 +734,23 @@
       );
 
 
+      /* EMAIL */
+
       adat.append(
         "email",
         email
       );
 
 
+      /* TELEPÜLÉS */
+
       adat.append(
         "telepules",
         telepules
       );
 
+
+      /* NÉV */
 
       adat.append(
         "nev",
@@ -946,6 +759,8 @@
           .value
       );
 
+
+      /* EREDMÉNY */
 
       const eredmeny =
         document
@@ -956,7 +771,10 @@
         "Elemzés folyamatban...";
 
 
+      /* KÜLDÉS */
+
       try {
+
 
         const valasz =
           await fetch(
@@ -972,6 +790,17 @@
           await valasz.json();
 
 
+        if (!valasz.ok) {
+
+          eredmeny.textContent =
+            json.hiba ||
+            "Hiba történt az elemzés során.";
+
+          return;
+
+        }
+
+
         eredmeny.textContent =
           json.eredmeny ||
           json.hiba ||
@@ -983,6 +812,7 @@
       catch (e) {
 
         console.error(e);
+
 
         eredmeny.textContent =
           "Hiba történt a kapcsolat során.";

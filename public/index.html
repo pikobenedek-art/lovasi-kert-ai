@@ -4,13 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Lovasi Kertgondozás</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <header class="site-header">
+
     <a class="brand" href="#kezdooldal">
       Lovasi <span>Kertgondozás</span>
     </a>
@@ -18,16 +21,21 @@
     <a class="header-cta" href="#ajanlatkeres">
       AI ajánlatkérés
     </a>
+
   </header>
+
 
   <main id="kezdooldal">
 
     <!-- FŐ BEMUTATKOZÓ RÉSZ -->
+
     <section class="intro" aria-labelledby="focim">
 
       <div class="intro-copy">
 
-        <p class="eyebrow">Lovas és környéke</p>
+        <p class="eyebrow">
+          Lovas és környéke
+        </p>
 
         <h1 id="focim">
           Kertészeti<br>
@@ -53,7 +61,7 @@
 
       </div>
 
-      <!-- ITT A KERT.JPG JELENIK MEG -->
+
       <div
         class="intro-photo"
         role="img"
@@ -64,11 +72,14 @@
 
 
     <!-- SZOLGÁLTATÁSOK -->
+
     <section class="services" aria-labelledby="szolgaltatasok">
 
       <div class="section-heading">
 
-        <p class="eyebrow">Amiben segítünk</p>
+        <p class="eyebrow">
+          Amiben segítünk
+        </p>
 
         <h2 id="szolgaltatasok">
           Kertje jó kezekben
@@ -77,54 +88,95 @@
       </div>
 
 
+      <!-- NAGY KERTKÉP -->
+
+      <div class="kert-banner">
+
+        <img
+          src="/kert.jpg"
+          alt="Gondozott kert">
+
+      </div>
+
+
+      <!-- SZOLGÁLTATÁSOK -->
+
       <div class="service-grid">
 
         <article class="service-card">
+
           <img
             src="kepek/funyiras.jpg"
             alt="Fűnyírás">
-          <h3>Fűnyírás</h3>
+
+          <h3>
+            Fűnyírás
+          </h3>
+
         </article>
 
 
         <article class="service-card">
+
           <img
             src="kepek/viragagyas.jpg"
-            alt="Virágágyás gondozása">
-          <h3>Ágyások gondozása</h3>
+            alt="Virágágyások gondozása">
+
+          <h3>
+            Ágyások gondozása
+          </h3>
+
           <p>
             Igényes, rendezett növényágyások.
           </p>
+
         </article>
 
 
         <article class="service-card">
+
           <img
             src="kepek/bokor.jpg"
             alt="Bokrok metszése">
-          <h3>Metszés</h3>
+
+          <h3>
+            Metszés
+          </h3>
+
           <p>
             Bokrok és sövények ápolása.
           </p>
+
         </article>
 
 
         <article class="service-card">
+
           <img
             src="kepek/fakivagas.jpg"
             alt="Fakivágás">
-          <h3>Fakivágás</h3>
+
+          <h3>
+            Fakivágás
+          </h3>
+
           <p>
             Kisebb és nagyobb fák kivágása.
           </p>
+
         </article>
 
 
         <article class="service-card">
+
           <img
             src="kepek/bozot.jpg"
             alt="Bozótirtás">
-          <h3>Bozót irtás</h3>
+
+          <h3>
+            Bozótirtás
+          </h3>
+
         </article>
 
       </div>
@@ -133,6 +185,7 @@
 
 
     <!-- HOGYAN MŰKÖDIK -->
+
     <section
       class="how-it-works"
       aria-labelledby="folyamat">
@@ -179,6 +232,7 @@
 
 
     <!-- AI AJÁNLATKÉRÉS -->
+
     <section
       class="quote-section"
       id="ajanlatkeres"
@@ -198,8 +252,14 @@
           Küldjön néhány képet, és írja meg,
           milyen munkára van szüksége.
           Az AI előzetes becslést készít,
-          amely alapján hamarosan felvesszük Önnel
-          a kapcsolatot.
+          amely alapján hamarosan felvesszük
+          Önnel a kapcsolatot.
+        </p>
+
+        <p class="ai-info">
+          Az AI által készített ajánlat csak előzetes
+          becslés. A pontos munkamennyiséget és végleges
+          árat a helyszíni felmérés alapján határozzuk meg.
         </p>
 
       </div>
@@ -210,7 +270,9 @@
         <label
           class="field-label"
           for="kepek">
+
           Kert képek feltöltése
+
         </label>
 
         <input
@@ -230,67 +292,87 @@
           <div class="work-options">
 
             <label>
+
               <input
                 type="checkbox"
                 value="Fűnyírás">
 
-              Fűnyírás
+              <span>
+                Fűnyírás
+              </span>
 
               <img
                 src="kepek/funyiras.jpg"
                 alt="Fűnyírás">
+
             </label>
 
 
             <label>
+
               <input
                 type="checkbox"
                 value="Virágágyások gondozása">
 
-              Virágágyások gondozása
+              <span>
+                Virágágyások gondozása
+              </span>
 
               <img
                 src="kepek/viragagyas.jpg"
                 alt="Virágágyás gondozása">
+
             </label>
 
 
             <label>
+
               <input
                 type="checkbox"
                 value="Bokrok metszése">
 
-              Bokrok metszése
+              <span>
+                Bokrok metszése
+              </span>
 
               <img
                 src="kepek/bokor.jpg"
                 alt="Bokrok metszése">
+
             </label>
 
 
             <label>
+
               <input
                 type="checkbox"
                 value="Bozót irtás">
 
-              Bozót irtás
+              <span>
+                Bozótirtás
+              </span>
 
               <img
                 src="kepek/bozot.jpg"
                 alt="Bozótirtás">
+
             </label>
 
 
             <label>
+
               <input
                 type="checkbox"
                 value="Fakivágás">
 
-              Fakivágás
+              <span>
+                Fakivágás
+              </span>
 
               <img
                 src="kepek/fakivagas.jpg"
                 alt="Fakivágás">
+
             </label>
 
           </div>
@@ -301,23 +383,27 @@
         <div class="form-grid">
 
           <label>
-            Település
+
+            Település *
 
             <input
               type="text"
               id="telepules"
               placeholder="Pl. Lovas"
               required>
+
           </label>
 
 
           <label>
+
             Név
 
             <input
               type="text"
               id="nev"
               placeholder="Név">
+
           </label>
 
         </div>
@@ -325,7 +411,7 @@
 
         <label>
 
-          Email cím
+          Email cím *
 
           <input
             type="email"
@@ -344,8 +430,7 @@
 
           <textarea
             id="megjegyzes"
-            placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről">
-          </textarea>
+            placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről"></textarea>
 
         </label>
 
@@ -372,7 +457,9 @@
 
 
   <footer>
+
     Lovasi Kertgondozás · Lovas és környéke
+
   </footer>
 
 
@@ -390,6 +477,7 @@
           .getElementById("email")
           .value
           .trim();
+
 
       const telepules =
         document
@@ -521,6 +609,7 @@
 
       }
 
+
       catch (e) {
 
         console.error(e);
@@ -535,4 +624,5 @@
   </script>
 
 </body>
+
 </html>

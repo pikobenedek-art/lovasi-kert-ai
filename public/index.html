@@ -1,120 +1,1001 @@
 <!doctype html>
 <html lang="hu">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Lovasi Kertgondozás</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =========================
+       FEJLÉC
+    ========================= */
+
+    .site-header {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(15, 45, 23, 0.92) 0%,
+          rgba(15, 45, 23, 0.78) 45%,
+          rgba(15, 45, 23, 0.25) 100%
+        ),
+        url("kepek/fejléc.jpg") center / cover no-repeat;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      min-height: 500px;
+      margin: 0 auto;
+      padding: 0 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-text {
+      width: 48%;
+      position: relative;
+      z-index: 3;
+      color: white;
+    }
+
+    .header-location {
+      margin: 0 0 15px;
+
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+
+      color: #b8d98c;
+    }
+
+    .header-text h1 {
+      margin: 0;
+
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+    }
+
+    .header-text h1 span {
+      display: block;
+      color: #a8cf70;
+    }
+
+    .header-subtitle {
+      max-width: 450px;
+
+      margin: 25px 0 30px;
+
+      font-size: 19px;
+      line-height: 1.5;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 14px 22px;
+
+      background: #a8cf70;
+      color: #153c1e;
+
+      text-decoration: none;
+      font-weight: 700;
+
+      border-radius: 6px;
+
+      transition: 0.2s;
+    }
+
+    .header-cta:hover {
+      background: #c2df93;
+      transform: translateY(-2px);
+    }
+
+    .header-garden {
+      width: 50%;
+      height: 500px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .header-garden::before {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 180px;
+
+      z-index: 2;
+
+      background: linear-gradient(
+        90deg,
+        rgba(15, 45, 23, 1),
+        rgba(15, 45, 23, 0)
+      );
+    }
+
+    .header-garden img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      display: block;
+    }
+
+
+    /* =========================
+       SZOLGÁLTATÁSOK KÉPEI
+    ========================= */
+
+    .kert-banner {
+      width: 100%;
+      margin-bottom: 40px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .kert-banner img {
+      width: 100%;
+      height: 350px;
+
+      display: block;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+
+    /* =========================
+       AI AJÁNLAT KÉPEK
+    ========================= */
+
+    .work-options label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      position: relative;
+    }
+
+    .work-options label img {
+      width: 65px;
+      height: 45px;
+
+      object-fit: cover;
+
+      border-radius: 5px;
+
+      margin-left: auto;
+
+      flex-shrink: 0;
+    }
+
+
+    /* =========================
+       MOBIL
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .site-header {
+        min-height: auto;
+      }
+
+      .header-content {
+        min-height: auto;
+
+        padding: 55px 20px 0;
+
+        flex-direction: column;
+      }
+
+      .header-text {
+        width: 100%;
+
+        text-align: center;
+
+        padding-bottom: 35px;
+      }
+
+      .header-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .header-garden {
+        width: 100%;
+        height: 280px;
+      }
+
+      .header-garden::before {
+        width: 100%;
+        height: 100px;
+
+        top: 0;
+        bottom: auto;
+        left: 0;
+
+        background: linear-gradient(
+          180deg,
+          rgba(15, 45, 23, 1),
+          rgba(15, 45, 23, 0)
+        );
+      }
+
+      .kert-banner img {
+        height: 230px;
+      }
+
+      .work-options label img {
+        width: 55px;
+        height: 40px;
+      }
+
+    }
+
+  </style>
+
 </head>
+
+
 <body>
+
+
+  <!-- =========================
+       FEJLÉC
+  ========================= -->
+
   <header class="site-header">
-    <a class="brand" href="#kezdooldal">Lovasi <span>Kertgondozás</span></a>
-    <a class="header-cta" href="#ajanlatkeres">AI ajánlatkérés</a>
+
+    <div class="header-content">
+
+      <div class="header-text">
+
+        <p class="header-location">
+          LOVAS ÉS KÖRNYÉKE
+        </p>
+
+        <h1>
+          Lovasi
+          <span>Kertgondozás</span>
+        </h1>
+
+        <p class="header-subtitle">
+          Gondozott kert, rendezett környezet.
+          Megbízható segítség a kert minden munkájához.
+        </p>
+
+        <a
+          class="header-cta"
+          href="#ajanlatkeres">
+
+          AI ajánlatkérés
+
+          <span>
+            →
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <!-- KERT.JPG A FEJLÉC JOBB OLDALÁN -->
+
+      <div class="header-garden">
+
+        <img
+          src="kepek/kert.jpg"
+          alt="Gondozott kert">
+
+      </div>
+
+    </div>
+
   </header>
 
+
+  <!-- =========================
+       FŐ TARTALOM
+  ========================= -->
+
   <main id="kezdooldal">
-    <section class="intro" aria-labelledby="focim">
+
+
+    <!-- =========================
+         BEMUTATKOZÁS
+    ========================= -->
+
+    <section
+      class="intro"
+      aria-labelledby="focim">
+
       <div class="intro-copy">
-        <p class="eyebrow">Lovas és környéke</p>
-        <h1 id="focim">Kertészeti<br><span>szolgáltatások</span></h1>
-        <p class="intro-lead">Rendben tartott kert, megbízható segítséggel. Töltsön fel képeket a kertről, és kérjen gyors, előzetes AI-ajánlatot.</p>
+
+        <p class="eyebrow">
+          Lovas és környéke
+        </p>
+
+        <h2 id="focim">
+          Kertészeti<br>
+          <span>szolgáltatások</span>
+        </h2>
+
+        <p class="intro-lead">
+          Rendben tartott kert, megbízható segítséggel.
+          Töltsön fel képeket a kertről, és kérjen gyors,
+          előzetes AI-ajánlatot.
+        </p>
+
         <ul class="benefits">
-          <li>Megbízható munkavégzés</li>
-          <li>Rugalmas időpontok</li>
-          <li>Átlátható, korrekt ajánlat</li>
+
+          <li>
+            Megbízható munkavégzés
+          </li>
+
+          <li>
+            Rugalmas időpontok
+          </li>
+
+          <li>
+            Átlátható, korrekt ajánlat
+          </li>
+
         </ul>
-        <a class="primary-button" href="#ajanlatkeres">Kérek AI ajánlatot <span aria-hidden="true">↓</span></a>
+
+        <a
+          class="primary-button"
+          href="#ajanlatkeres">
+
+          Kérek AI ajánlatot
+
+          <span aria-hidden="true">
+            ↓
+          </span>
+
+        </a>
+
       </div>
-      <div class="intro-photo" role="img" aria-label="Gondozott kert Lovas környékén"></div>
+
+
+      <div
+        class="intro-photo"
+        role="img"
+        aria-label="Gondozott kert Lovas környékén">
+      </div>
+
     </section>
 
-    <section class="services" aria-labelledby="szolgaltatasok">
+
+    <!-- =========================
+         SZOLGÁLTATÁSOK
+    ========================= -->
+
+    <section
+      class="services"
+      aria-labelledby="szolgaltatasok">
+
       <div class="section-heading">
-        <p class="eyebrow">Amiben segítünk</p>
-        <h2 id="szolgaltatasok">Kertje jó kezekben</h2>
+
+        <p class="eyebrow">
+          Amiben segítünk
+        </p>
+
+        <h2 id="szolgaltatasok">
+          Kertje jó kezekben
+        </h2>
+
       </div>
+
+
+      <!-- KERT.JPG -->
+
+      <div class="kert-banner">
+
+        <img
+          src="kepek/kert.jpg"
+          alt="Gondozott kert">
+
+      </div>
+
+
       <div class="service-grid">
-        <article class="service-card"><img src="kepek/funyiras.jpg" alt="Fűnyírás"><h3>Fűnyírás</h3></article>
-        <article class="service-card"><img src="kepek/viragagyas.jpg" alt="Virágágyás gondozása"><h3>Ágyások gondozása</h3><p>Igényes, rendezett növényágyások.</p></article>
-        <article class="service-card"><img src="kepek/bokor.jpg" alt="Bokrok metszése"><h3>Metszés</h3><p>Bokrok és sövények ápolása.</p></article>
-        <article class="service-card"><img src="kepek/fakivagas.jpg" alt="Fakivágás"><h3>Fakivágás</h3><p>Kisebb és nagyobb fák kivágása.</p></article>
-        <article class="service-card"><img src="kepek/bozot.jpg" alt="Bozotirtás"><h3>Bozót irtás</h3></article>
+
+
+        <article class="service-card">
+
+          <img
+            src="kepek/funyiras.jpg"
+            alt="Fűnyírás">
+
+          <h3>
+            Fűnyírás
+          </h3>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <img
+            src="kepek/viragagyas.jpg"
+            alt="Virágágyás gondozása">
+
+          <h3>
+            Ágyások gondozása
+          </h3>
+
+          <p>
+            Igényes, rendezett növényágyások.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <img
+            src="kepek/bokor.jpg"
+            alt="Bokrok metszése">
+
+          <h3>
+            Metszés
+          </h3>
+
+          <p>
+            Bokrok és sövények ápolása.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <img
+            src="kepek/fakivagas.jpg"
+            alt="Fakivágás">
+
+          <h3>
+            Fakivágás
+          </h3>
+
+          <p>
+            Kisebb és nagyobb fák kivágása.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <img
+            src="kepek/bozot.jpg"
+            alt="Bozótirtás">
+
+          <h3>
+            Bozót irtás
+          </h3>
+
+        </article>
+
+
       </div>
+
     </section>
 
-    <section class="how-it-works" aria-labelledby="folyamat">
+
+    <!-- =========================
+         HOGYAN MŰKÖDIK
+    ========================= -->
+
+    <section
+      class="how-it-works"
+      aria-labelledby="folyamat">
+
       <div>
-        <p class="eyebrow">Egyszerűen</p>
-        <h2 id="folyamat">Így kérhet ajánlatot</h2>
+
+        <p class="eyebrow">
+          Egyszerűen
+        </p>
+
+        <h2 id="folyamat">
+          Így kérhet ajánlatot
+        </h2>
+
       </div>
+
+
       <ol>
-        <li><b>1</b><span>Töltse fel kertjéről készült képeit.</span></li>
-        <li><b>2</b><span>Jelölje be a szükséges munkákat.</span></li>
-        <li><b>3</b><span>Kapjon előzetes, AI-alapú becslést.</span></li>
+
+        <li>
+
+          <b>
+            1
+          </b>
+
+          <span>
+            Töltse fel kertjéről készült képeit.
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <b>
+            2
+          </b>
+
+          <span>
+            Jelölje be a szükséges munkákat.
+          </span>
+
+        </li>
+
+
+        <li>
+
+          <b>
+            3
+          </b>
+
+          <span>
+            Kapjon előzetes, AI-alapú becslést.
+          </span>
+
+        </li>
+
       </ol>
+
     </section>
 
-    <section class="quote-section" id="ajanlatkeres" aria-labelledby="ajanlat-cim">
+
+    <!-- =========================
+         AI AJÁNLATKÉRÉS
+    ========================= -->
+
+    <section
+      class="quote-section"
+      id="ajanlatkeres"
+      aria-labelledby="ajanlat-cim">
+
+
       <div class="quote-intro">
-        <p class="eyebrow">AI kertfelmérés</p>
-        <h2 id="ajanlat-cim">Kérjen előzetes ajánlatot</h2>
-        <p>Küldjön néhány képet, és írja meg, milyen munkára van szüksége. Az AI előzetes becslést készít, amely alapján hamarosan felvesszük Önnel a kapcsolatot.</p>
+
+        <p class="eyebrow">
+          AI kertfelmérés
+        </p>
+
+        <h2 id="ajanlat-cim">
+          Kérjen előzetes ajánlatot
+        </h2>
+
+        <p>
+          Küldjön néhány képet, és írja meg,
+          milyen munkára van szüksége.
+          Az AI előzetes becslést készít,
+          amely alapján hamarosan felvesszük
+          Önnel a kapcsolatot.
+        </p>
+
+        <p class="ai-info">
+          Az AI által készített ajánlat csak előzetes
+          becslés. A pontos munkamennyiséget és végleges
+          árat a helyszíni felmérés alapján határozzuk meg.
+        </p>
+
       </div>
+
 
       <div class="quote-form">
-        <label class="field-label" for="kepek">Kert képek feltöltése</label>
-        <input type="file" id="kepek" multiple accept="image/*">
+
+
+        <!-- KÉPFELTÖLTÉS -->
+
+        <label
+          class="field-label"
+          for="kepek">
+
+          Kert képek feltöltése
+
+        </label>
+
+        <input
+          type="file"
+          id="kepek"
+          multiple
+          accept="image/*">
+
+
+        <!-- MUNKÁK -->
 
         <fieldset>
-          <legend>Milyen munkára van szüksége?</legend>
+
+          <legend>
+            Milyen munkára van szüksége?
+          </legend>
+
+
           <div class="work-options">
-            <label><input type="checkbox" value="Fűnyírás"> Fűnyírás <img src="kepek/funyiras.jpg" alt="Fűnyírás"></label>
-            <label><input type="checkbox" value="Virágágyások gondozása"> Virágágyások gondozása <img src="kepek/viragagyas.jpg" alt="Virágágyás gondozása"></label>
-            <label><input type="checkbox" value="Bokrok metszése"> Bokrok metszése <img src="kepek/bokor.jpg" alt="Bokrok metszése"></label>
-            <label><input type="checkbox" value="Bozót irtás"> Bozót irtás<img src="kepek/bozot.jpg" alt="Bozotirtás"></label>
-            <label><input type="checkbox" value="Fakivágás"> Fakivágás <img src="kepek/fakivagas.jpg" alt="Fakivágás"></label>
+
+
+            <label>
+
+              <input
+                type="checkbox"
+                value="Fűnyírás">
+
+              <span>
+                Fűnyírás
+              </span>
+
+              <img
+                src="kepek/funyiras.jpg"
+                alt="Fűnyírás">
+
+            </label>
+
+
+            <label>
+
+              <input
+                type="checkbox"
+                value="Virágágyások gondozása">
+
+              <span>
+                Virágágyások gondozása
+              </span>
+
+              <img
+                src="kepek/viragagyas.jpg"
+                alt="Virágágyás gondozása">
+
+            </label>
+
+
+            <label>
+
+              <input
+                type="checkbox"
+                value="Bokrok metszése">
+
+              <span>
+                Bokrok metszése
+              </span>
+
+              <img
+                src="kepek/bokor.jpg"
+                alt="Bokrok metszése">
+
+            </label>
+
+
+            <label>
+
+              <input
+                type="checkbox"
+                value="Bozót irtás">
+
+              <span>
+                Bozót irtás
+              </span>
+
+              <img
+                src="kepek/bozot.jpg"
+                alt="Bozótirtás">
+
+            </label>
+
+
+            <label>
+
+              <input
+                type="checkbox"
+                value="Fakivágás">
+
+              <span>
+                Fakivágás
+              </span>
+
+              <img
+                src="kepek/fakivagas.jpg"
+                alt="Fakivágás">
+
+            </label>
+
+
           </div>
+
         </fieldset>
 
+
+        <!-- ADATOK -->
+
         <div class="form-grid">
-          <label>Település<input type="text" id="telepules" placeholder="Pl. Lovas" required></label>
-          <label>Név<input type="text" id="nev" placeholder="Név"></label>
+
+          <label>
+
+            Település
+
+            <input
+              type="text"
+              id="telepules"
+              placeholder="Pl. Lovas"
+              required>
+
+          </label>
+
+
+          <label>
+
+            Név
+
+            <input
+              type="text"
+              id="nev"
+              placeholder="Név">
+
+          </label>
+
         </div>
-        <label>Email cím / Telefonszám<input type="email" id="email" name="email" placeholder="Email cím" autocomplete="email" required></label>
-        <label>Megjegyzés<textarea id="megjegyzes" placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről"></textarea></label>
-        <button type="button" id="ajanlatGomb">Ajánlat kérése</button>
-        <div id="eredmeny" aria-live="polite"></div>
+
+
+        <!-- ELÉRHETŐSÉG -->
+
+        <label>
+
+          Email cím / Telefonszám
+
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email cím vagy telefonszám"
+            autocomplete="email"
+            required>
+
+        </label>
+
+
+        <!-- MEGJEGYZÉS -->
+
+        <label>
+
+          Megjegyzés
+
+          <textarea
+            id="megjegyzes"
+            placeholder="Írjon pár információt a kertről, helyszínről vagy elképzeléséről"></textarea>
+
+        </label>
+
+
+        <!-- GOMB -->
+
+        <button
+          type="button"
+          id="ajanlatGomb">
+
+          Ajánlat kérése
+
+        </button>
+
+
+        <div
+          id="eredmeny"
+          aria-live="polite">
+        </div>
+
+
       </div>
+
     </section>
+
   </main>
 
-  <footer>Lovasi Kertgondozás · Lovas és környéke</footer>
+
+  <!-- =========================
+       LÁBLÉC
+  ========================= -->
+
+  <footer>
+
+    Lovasi Kertgondozás · Lovas és környéke
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
   <script>
-    document.getElementById("ajanlatGomb").addEventListener("click", kuldes);
+
+    document
+      .getElementById("ajanlatGomb")
+      .addEventListener(
+        "click",
+        kuldes
+      );
+
+
     async function kuldes() {
-      const email = document.getElementById("email").value.trim();
-      const telepules = document.getElementById("telepules").value.trim();
-      if (!email) { alert("Az email cím megadása kötelező!"); document.getElementById("email").focus(); return; }
-      if (!telepules) { alert("A település megadása kötelező!"); document.getElementById("telepules").focus(); return; }
-      const adat = new FormData();
-      for (const fajl of document.getElementById("kepek").files) adat.append("kepek", fajl);
-      const munkak = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(elem => elem.value);
-      adat.append("munkak", munkak.join(", "));
-      adat.append("megjegyzes", document.getElementById("megjegyzes").value);
-      adat.append("email", email);
-      adat.append("telepules", telepules);
-      adat.append("nev", document.getElementById("nev").value);
-      const eredmeny = document.getElementById("eredmeny");
-      eredmeny.textContent = "Elemzés folyamatban...";
-      try {
-        const valasz = await fetch("/elemzes", { method: "POST", body: adat });
-        const json = await valasz.json();
-        eredmeny.textContent = json.eredmeny || json.hiba;
-      } catch (e) {
-        eredmeny.textContent = "Hiba történt a kapcsolat során.";
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+
+      const telepules =
+        document
+          .getElementById("telepules")
+          .value
+          .trim();
+
+
+      if (!email) {
+
+        alert(
+          "Az email cím vagy telefonszám megadása kötelező!"
+        );
+
+        document
+          .getElementById("email")
+          .focus();
+
+        return;
+
       }
+
+
+      if (!telepules) {
+
+        alert(
+          "A település megadása kötelező!"
+        );
+
+        document
+          .getElementById("telepules")
+          .focus();
+
+        return;
+
+      }
+
+
+      const adat =
+        new FormData();
+
+
+      for (
+        const fajl of
+        document
+          .getElementById("kepek")
+          .files
+      ) {
+
+        adat.append(
+          "kepek",
+          fajl
+        );
+
+      }
+
+
+      const munkak =
+        [
+          ...document.querySelectorAll(
+            '.work-options input[type="checkbox"]:checked'
+          )
+        ]
+        .map(
+          elem => elem.value
+        );
+
+
+      adat.append(
+        "munkak",
+        munkak.join(", ")
+      );
+
+
+      adat.append(
+        "megjegyzes",
+        document
+          .getElementById("megjegyzes")
+          .value
+      );
+
+
+      adat.append(
+        "email",
+        email
+      );
+
+
+      adat.append(
+        "telepules",
+        telepules
+      );
+
+
+      adat.append(
+        "nev",
+        document
+          .getElementById("nev")
+          .value
+      );
+
+
+      const eredmeny =
+        document
+          .getElementById("eredmeny");
+
+
+      eredmeny.textContent =
+        "Elemzés folyamatban...";
+
+
+      try {
+
+        const valasz =
+          await fetch(
+            "/elemzes",
+            {
+              method: "POST",
+              body: adat
+            }
+          );
+
+
+        const json =
+          await valasz.json();
+
+
+        eredmeny.textContent =
+          json.eredmeny ||
+          json.hiba ||
+          "Az ajánlat elkészült.";
+
+      }
+
+
+      catch (e) {
+
+        console.error(e);
+
+        eredmeny.textContent =
+          "Hiba történt a kapcsolat során.";
+
+      }
+
     }
+
   </script>
+
 </body>
+
 </html>

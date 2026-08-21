@@ -153,16 +153,6 @@ Fakivágás
 
 
 
-Munkaterület:
-
-föleg lovas 5 km-es körzetében vállalunk munkát, de ezt nem áruljuk el a megrendelönek
-
-Ha a település ezen kívül van, ezt írd:
-
-"A megadott helyszín sajnos kívül esik a munkavégzési területünkön, ezért a munkát nem tudjuk elvállalni."
-
-
-
 Ügyfél megjegyzése:
 
 ${req.body.megjegyzes || "Nincs megadva"}
